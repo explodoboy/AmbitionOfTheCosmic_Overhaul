@@ -1,0 +1,61 @@
+<Defs>
+
+    <TerrainDef ParentName="FloorBase" Name="AOTC_FloorBase" Abstract="True" >
+        <constructEffect>ConstructMetal</constructEffect>
+        <isPaintable>true</isPaintable>
+        <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+        <tags>
+            <li>FineFloor</li>
+        </tags>
+        <statBases>
+            <WorkToBuild>900</WorkToBuild>
+        </statBases>
+    </TerrainDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <TerrainDef ParentName="AOTC_FloorBase">
+        <defName>AOTC_FloorTough_GenI</defName>
+        <label>starsteel tile</label>
+        <description>Floor tiles made of pure starsteel. They are quick to clean and get a bonus to cleanliness for use in medical and culinary settings, alongside looking very nice.</description>
+        <renderPrecedence>240</renderPrecedence>
+        <texturePath>BaseAOTC/Terrain/Surfaces/AOTC_FloorTough_GenI</texturePath>
+        <statBases>
+            <WorkToBuild>900</WorkToBuild>
+            <Beauty>5</Beauty>
+            <Cleanliness>0.2</Cleanliness>
+            <CleaningTimeFactor>0.6</CleaningTimeFactor>
+        </statBases>
+        <costList>
+            <AOTC_MaterialTough_GenI>3</AOTC_MaterialTough_GenI>
+        </costList>
+        <researchPrerequisites>
+            <li>AOTC_GenI_MaterialProduction</li>
+        </researchPrerequisites>
+    </TerrainDef>
+
+    <TerrainDef ParentName="AOTC_FloorBase">
+        <defName>AOTC_FloorBeauty_GenI</defName>
+        <label>opulent starsteel tile</label>
+        <description>Floor tiles made of pure opulent starsteel. They are quick to clean and get a bonus to cleanliness for use in medical and culinary settings, alongside looking very, very nice.</description>
+        <renderPrecedence>240</renderPrecedence>
+        <texturePath>BaseAOTC/Terrain/Surfaces/AOTC_FloorBeauty_GenI</texturePath>
+        <statBases>
+            <WorkToBuild>900</WorkToBuild>
+            <Beauty>11</Beauty>
+            <Cleanliness>0.2</Cleanliness>
+            <CleaningTimeFactor>0.6</CleaningTimeFactor>
+        </statBases>
+        <costList>
+            <AOTC_MaterialBeauty_GenI>3</AOTC_MaterialBeauty_GenI>
+        </costList>
+        <researchPrerequisites>
+            <li>AOTC_GenI_MaterialProduction</li>
+        </researchPrerequisites>
+    </TerrainDef>
+
+    
+    <!-- [==========] GENERATION 2 "COSMISTELLAR" [==========] -->
+
+</Defs>

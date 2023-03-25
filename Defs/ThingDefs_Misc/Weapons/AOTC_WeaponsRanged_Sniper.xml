@@ -1,0 +1,105 @@
+<Defs>
+
+    <ThingDef ParentName="BaseMakeableGun" Name="AOTC_SniperBase" Abstract="True">
+        <soundInteract>Interact_ChargeLance</soundInteract>
+        <statBases>
+            <Mass>5</Mass>
+            <!--WorkToMake>45000</WorkToMake--> <!-- Use this as reference for recipes in crafting station. -->
+        </statBases>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <weaponTags>
+            <li>SpacerGun</li>
+        </weaponTags>
+        <tradeTags>
+            <li>WeaponRanged</li>
+        </tradeTags>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+            <li>RewardStandardMidFreq</li>
+        </thingSetMakerTags>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_SniperBase">
+        <defName>AOTC_Sniper_GenI</defName>
+        <label>stellar sniper</label>
+        <description>A sniper rifle that launches condensed atmosphere heated into a dense plasma, held tightly together by a magnetic field. The projectile launched by the stellar sniper has exceptional penetrating power.</description>
+        <techLevel>Ultra</techLevel>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Equipment/WeaponRanged/AOTC_Sniper_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <WorkToMake>45000</WorkToMake>
+            <AccuracyTouch>0.70</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.9</AccuracyMedium>
+            <AccuracyLong>0.95</AccuracyLong>
+            <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>AOTC_SniperBullet_GenI</defaultProjectile>
+                <warmupTime>1.5</warmupTime>
+                <range>34.9</range>
+                <soundCast>ChargeLance_Fire</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <recipeMaker>
+            <recipeUsers Inherit="False">
+                <li>AOTC_CraftingMain_GenI</li>
+            </recipeUsers>
+            <researchPrerequisite>AOTC_GenI_WeaponsRanged</researchPrerequisite>
+        </recipeMaker>
+        <costList>
+            <AOTC_MaterialTough_GenI>50</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>2</AOTC_Component_GenI>
+        </costList>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>AOTC_SniperBullet_GenI</defName>
+        <label>stellar sniper projectile</label>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Projectile/AOTC_SniperBullet_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>35</damageAmountBase>
+            <armorPenetrationBase>0.7</armorPenetrationBase>
+            <stoppingPower>1.5</stoppingPower>
+            <speed>135</speed>
+        </projectile>
+    </ThingDef>
+
+</Defs>

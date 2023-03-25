@@ -1,0 +1,169 @@
+<Defs>
+    
+    <ThingDef ParentName="BuildingBase" Name="AOTC_PowerGeneratorBase" Abstract="True">
+        <thingClass>Building</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <blockWind>true</blockWind>
+        <fillPercent>1.0</fillPercent>
+        <castEdgeShadows>true</castEdgeShadows>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <canOverlapZones>false</canOverlapZones>
+        <size>(3,3)</size>
+        <building>
+            <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+        </building>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <designationCategory>AOTC</designationCategory>
+        <constructEffect>ConstructMetal</constructEffect>
+        <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+        <statBases>
+            <MaxHitPoints>300</MaxHitPoints> <!-- default value -->
+            <WorkToBuild>5100</WorkToBuild>
+            <Flammability>0</Flammability>
+            <Mass>20</Mass>
+        </statBases>
+        <thingCategories>
+            <li>BuildingsPower</li>
+        </thingCategories>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_PowerGeneratorBase">
+        <defName>AOTC_PowerGeneratorFueled_GenI</defName>
+        <label>advanced fission reactor</label>
+        <description>A reactor capable of efficiently generating power from pure, unenriched uranium, without any risk of meltdowns if the reactor is damaged. Spent fuel is atomized and deposited into the local atmosphere harmlessly. The reactor generates a considerable amount of heat when running.\n\nSTATS:\nGenerates 25,000 Watts\nConsumes 1 Uranium per day, can store 75 Uranium; when fully supplied, can run up to 75 days without requiring a refuel.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Power/AOTC_PowerGeneratorFueled_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,5)</drawSize>
+        </graphicData>
+        <costList>
+            <AOTC_MaterialTough_GenI>100</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>5</AOTC_Component_GenI>
+        </costList>
+        <statBases>
+            <MaxHitPoints>700</MaxHitPoints>
+            <Beauty>10</Beauty>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-25000</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
+                <soundAmbientProducingPower>ShipReactor_Ambience</soundAmbientProducingPower>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>1.0</fuelConsumptionRate>
+                <fuelCapacity>75.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+            <li Class="CompProperties_HeatPusher">
+                <compClass>CompHeatPusherPowered</compClass>
+                <heatPerSecond>15</heatPerSecond>
+            </li>
+          </comps>
+          <researchPrerequisites>
+              <li>AOTC_GenI_PowerFueled</li>
+          </researchPrerequisites>
+          <thingCategories Inherit="False" />
+    </ThingDef>
+
+    <ThingDef ParentName="AOTC_PowerGeneratorBase">
+        <defName>AOTC_PowerGeneratorFueledPortable_GenI</defName>
+        <label>portable advanced fission reactor</label>
+        <description>A portable reactor capable of efficiently generating power from pure, unenriched uranium, without any risk of meltdowns if the reactor is damaged. Spent fuel is atomized and deposited into the local atmosphere harmlessly. The reactor generates a considerable amount of heat when running. The reactor is significantly less fuel-efficient than its larger, stationary version.\n\nSTATS:\nGenerates 10,000 Watts\nConsumes 1 Uranium per 2 days, can store 25 Uranium; when fully supplied, can run up to 50 days without requiring a refuel.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Power/AOTC_PowerGeneratorFueledPortable_GenI/AOTC_PowerGeneratorFueledPortable_GenI</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,4)</drawSize>
+        </graphicData>
+        <size>(1,2)</size>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <rotatable>true</rotatable>
+        <costList>
+            <AOTC_MaterialTough_GenI>40</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>2</AOTC_Component_GenI>
+        </costList>
+        <statBases>
+            <MaxHitPoints>350</MaxHitPoints>
+            <Beauty>10</Beauty>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-10000</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
+                <soundAmbientProducingPower>ShipReactor_Ambience</soundAmbientProducingPower>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>0.5</fuelConsumptionRate>
+                <fuelCapacity>25.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+            <li Class="CompProperties_HeatPusher">
+                <compClass>CompHeatPusherPowered</compClass>
+                <heatPerSecond>7</heatPerSecond>
+            </li>
+        </comps>
+        <researchPrerequisites>
+            <li>AOTC_GenI_PowerFueled</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="AOTC_PowerGeneratorBase">
+        <defName>AOTC_PowerGeneratorFree_GenI</defName>
+        <label>perpetual turbine motor</label>
+        <description>A power-generating turbine that generates kinetic energy from proto-cosmic charge, capable of generating a small amount of energy for completely free. A significant amount of generated energy is lost in the form of heat.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Power/AOTC_PowerGeneratorFree_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <size>(1,1)</size>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <costList>
+            <AOTC_MaterialTough_GenI>20</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>1</AOTC_Component_GenI>
+            <AOTC_ResourceIngedientFilled_GenI>1</AOTC_ResourceIngedientFilled_GenI>
+        </costList>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <Beauty>10</Beauty>
+            <Mass>5</Mass>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-500</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
+                <soundAmbientProducingPower>ShipReactor_Ambience</soundAmbientProducingPower>
+            </li>
+            <li Class="CompProperties_HeatPusher">
+                <compClass>CompHeatPusherPowered</compClass>
+                <heatPerSecond>3</heatPerSecond>
+            </li>
+          </comps>
+          <researchPrerequisites>
+              <li>AOTC_GenI_PowerFree</li>
+          </researchPrerequisites>
+    </ThingDef>
+
+</Defs>

@@ -1,0 +1,4 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AmbitionOfTheCosmic_Overhaul\Source\AmbitionOfTheCosmic\obj\Debug\HowYouWantIt.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AmbitionOfTheCosmic_Overhaul\Source\AmbitionOfTheCosmic\obj\Debug\HowYouWantIt.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AmbitionOfTheCosmic_Overhaul\Source\AmbitionOfTheCosmic\obj\Debug\HowYouWantIt.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AmbitionOfTheCosmic_Overhaul\Assemblies\HowYouWantIt.dll

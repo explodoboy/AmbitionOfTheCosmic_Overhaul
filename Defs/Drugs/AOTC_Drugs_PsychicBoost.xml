@@ -1,0 +1,112 @@
+<Defs> <!-- If Royalty isn't active, then the item and drug won't load at all. The abstract bases will be kept, since they don't really do anything. (TODO: Don't forget to disable recipes if Royalty isn't active.) -->
+
+    <ThingDef ParentName="AOTC_DrugBase" Name="AOTC_DrugPsychicBoostBase" Abstract="True">
+        <ingestible>
+            <joyKind>AOTC_Enchantment</joyKind>
+            <drugCategory>Social</drugCategory> <!-- According to the wiki, since this has no risk of addiction or overdose, this can be classified as 'social'. -->
+            <foodType>Processed, Fluid</foodType>
+            <baseIngestTicks>120</baseIngestTicks>
+            <ingestSound>Ingest_Inject</ingestSound>
+            <ingestHoldOffsetStanding>
+                <northDefault>
+                    <offset>(0.18,0,0)</offset>
+                </northDefault>
+            </ingestHoldOffsetStanding>
+            <ingestCommandString>Inject {0}</ingestCommandString>
+            <ingestReportString>Injecting {0}.</ingestReportString>
+            <useEatingSpeedStat>false</useEatingSpeedStat>
+            <chairSearchRadius>0</chairSearchRadius>
+        </ingestible>
+    </ThingDef>
+
+    <HediffDef Name="AOTC_DrugPsychicBoost_HediffBase" Abstract="True">
+        <hediffClass>HediffWithComps</hediffClass>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                    <severityPerDay>-2</severityPerDay> <!-- Should wear off after 6 hours per dose. -->
+                    <showHoursToRecover>true</showHoursToRecover>
+            </li>
+            <li MayRequire="V1024.EBFramework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust"> <!-- Hopefully this will work and enhance the entire body, instead of doing absolutely nothing. -->
+                    <scaleAdjustment>1</scaleAdjustment>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_DrugPsychicBoostBase">
+        <defName>AOTC_DrugPsychicBoost_GenI</defName>
+        <label>PSION-I</label>
+        <description>An injector containing mechanites that travel to the brain and temporarily restructure the brain in a way that vastly amplifies the rate Psyfocus is gained. PSION-I also grants a brief burst of Psyfocus instantly. PSION-I has no chance of addiction or overdose. It has no effect on non-psycasters.\n\nSTATS:\nDose gives 12 hours of effect\nDuration does not stack</description>
+        <descriptionHyperlinks>
+            <HediffDef>AOTC_DrugPsychicBoost_GenI</HediffDef>
+        </descriptionHyperlinks>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Drug/AOTC_DrugPsychicBoost_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>50</MarketValue>
+        </statBases>
+        <ingestible>
+            <baseIngestTicks>120</baseIngestTicks>
+            <joy>0.25</joy>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>AOTC_DrugPsychicBoost_GenI</hediffDef>
+                    <severity>1</severity>
+                </li>
+                <li Class="IngestionOutcomeDoer_OffsetPsyfocus"> <!-- So go-juice's psyfocus boost did exist in XML... -->
+                    <offset>0.5</offset>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+        <researchPrerequisites>
+            <li>AOTC_GenI_MedicineAndDrugs</li>
+        </researchPrerequisites>
+        <comps>
+            <li Class="CompProperties_Drug">
+                <addictiveness>0</addictiveness>
+                <existingAddictionSeverityOffset>0</existingAddictionSeverityOffset>
+                <needLevelOffset>0</needLevelOffset>
+                <isCombatEnhancingDrug>false</isCombatEnhancingDrug>
+                <listOrder>200</listOrder>
+                <overdoseSeverityOffset>0</overdoseSeverityOffset>
+                <largeOverdoseChance>0</largeOverdoseChance>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <HediffDef ParentName="AOTC_DrugPsychicBoost_HediffBase">
+        <defName>AOTC_DrugPsychicBoost_GenI</defName>
+        <label>high on PSION-I</label>
+        <labelNoun>a PSION-I high</labelNoun>
+        <description>Charged PSION-I mechanites in the brain. The mechanites are increasing the rate Psyfocus is gained. The mechanites will eventually lose charge and will eventually be filtered out of the body harmlessly.</description>
+        <defaultLabelColor>(255,60,0)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <stages>
+            <li>
+                <statOffsets>
+                    <PsychicEntropyMax MayRequire="Ludeon.RimWorld.Royalty">0.5</PsychicEntropyMax>
+                    <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.5</PsychicEntropyRecoveryRate>
+                    <MeditationFocusGain MayRequire="Ludeon.RimWorld.Royalty">1</MeditationFocusGain>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="IHaveTheCure.HediffCompProperties_CuresHediffs"> <!-- TODO: Move this over to the Gen2 version when I make it. -->
+               <hediffsToCure> <!-- Remove PSION hediffs for previous generation, to prevent stacking. -->
+                    <!--li>AOTC_DrugPsychicBoost_GenII</li>
+                    <li>AOTC_DrugPsychicBoost_GenIII</li>
+                    <li>AOTC_DrugPsychicBoost_GenIV</li>
+                    <li>AOTC_DrugPsychicBoost_GenV</li>
+                    <li>AOTC_DrugPsychicBoost_GenVI</li>
+                    <li>AOTC_DrugPsychicBoost_GenVII</li--> <!-- Disabling for drug defs that don't yet exist. -->
+               </hediffsToCure>
+           </li>
+        </comps>
+    </HediffDef>
+    
+</Defs>

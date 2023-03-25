@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- This file contains the Cosmic Matter-drawing stations of AOTC. -->
+
+    <ThingDef ParentName="BenchBase" Name="AOTC_CraftingCosmicDrawingBase" Abstract="True">
+        <thingClass>Building_WorkTable</thingClass>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <minifiedDef />
+        <thingCategories Inherit="false" />
+        <size>(2,2)</size>
+        <fillPercent>1</fillPercent>
+        <staticSunShadowHeight>0.20</staticSunShadowHeight>
+        <castEdgeShadows>true</castEdgeShadows>
+        <inspectorTabs><li>ITab_Bills</li></inspectorTabs>
+        <building><spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity></building>
+        <designationCategory>AOTC</designationCategory> <!-- RimWorld will shit itself to death if you put this in something without a defName that's also not Abstract. -->
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <uiOrder>1200</uiOrder>
+        <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+        <surfaceType>Item</surfaceType>
+        <interactionCellOffset>(1,0,-1)</interactionCellOffset>
+        <hasInteractionCell>true</hasInteractionCell>
+        <statBases>
+            <Flammability>0</Flammability>
+            <WorkToBuild>4500</WorkToBuild>
+        </statBases>
+        <placeWorkers>
+          <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <WorkGiverDef>
+        <defName>AOTC_CraftingCosmicDrawing_GenI</defName>
+        <label>work at proto-cosmic accumilator</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Crafting</workType>
+		<priorityInType>100</priorityInType>
+		<fixedBillGiverDefs><li>AOTC_CraftingCosmicDrawing_GenI</li></fixedBillGiverDefs>
+        <verb>Draw proto-cosmic charge</verb>
+        <gerund>Drawing proto-cosmic charge</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <ThingDef ParentName="AOTC_CraftingCosmicDrawingBase">
+        <defName>AOTC_CraftingCosmicDrawing_GenI</defName>
+        <label>proto-cosmic accumilator</label>
+        <description>A device that generates a vacuum and siphons latent Cosmic Matter emitted by some distant Cosmic Precursor device. Cosmic Matter gathered from this device is extremely low-energy. Cosmic Matter gathered inside the device must be stored in a custom-made container for the accumilator.\n\nSTATS: Consumes 5,000 Watts</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Production/AOTC_CraftingCosmicDrawing_GenI/AOTC_CraftingCosmicDrawing_GenI</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,3)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <costList>
+            <Plasteel>50</Plasteel>
+            <ComponentSpacer>8</ComponentSpacer>
+        </costList>
+        <statBases>
+            <MaxHitPoints>750</MaxHitPoints>
+            <Beauty>20</Beauty>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>5000</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
+            <li Class="CompProperties_Flickable" />
+          </comps>
+          <researchPrerequisites>
+            <li>AOTC_GenI_MaterialProduction</li>
+          </researchPrerequisites>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+</Defs>

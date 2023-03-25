@@ -1,0 +1,4 @@
+Darkened infusion lines uses [Hue and Saturation] tool in infusion line layers.
+
+35 Saturation
+-30 Lightness

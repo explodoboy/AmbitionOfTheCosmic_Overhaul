@@ -1,0 +1,101 @@
+<Defs>
+
+    <ThingDef ParentName="FurnitureBase" Name="AOTC_JoyBase" Abstract="True">
+        <altitudeLayer>Building</altitudeLayer>
+        <rotatable>false</rotatable>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <fillPercent>0.40</fillPercent>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <size>(2,2)</size>
+        <building>
+            <joyKind>Gaming_Cerebral</joyKind>
+        </building>
+        <statBases>
+              <WorkToBuild>12000</WorkToBuild>
+              <Mass>5</Mass>
+              <Flammability>0</Flammability>
+        </statBases>
+        <pathCost>42</pathCost>
+        <passability>PassThroughOnly</passability>
+        <designationCategory>AOTC</designationCategory>
+        <canOverlapZones>false</canOverlapZones>
+        <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+    </ThingDef>
+
+    <!--
+
+    //This goes at the top of the file.
+
+    <JoyKindDef>
+        <defName>AOTC_GamingX</defName>
+        <label>SKILL_HERE play</label>
+    </JoyKindDef>
+
+
+
+    //This goes below the generation markers.
+
+    <ThingDef ParentName="AOTC_JoyBase">
+        <defName>AOTC_GamingX_GenI</defName>
+        <label>stellar SKILL_HERE entertainment station</label>
+        <description>An interactive holo-computer station containing a variety of SKILL_HERE-testing games, both modern and ancient, singleplayer and multiplayer. Up to eight people can use the station at once. It trains the SKILL_HERE skill.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Joy/AOTC_GamingX_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4,4)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <Beauty>12</Beauty>
+            <JoyGainFactor>1.5</JoyGainFactor>
+        </statBases>
+        <costList>
+            <AOTC_MaterialTough_GenI>50</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>1</AOTC_Component_GenI>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>100</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
+            <li Class="CompProperties_Flickable" />
+        </comps>
+        <researchPrerequisites>
+            <li>REPLACEME</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <JoyGiverDef>
+        <defName>AOTC_GamingX_GenI</defName>
+        <giverClass>JoyGiver_WatchBuilding</giverClass>
+        <baseChance>2</baseChance>
+        <thingDefs>
+            <li>AOTC_GamingX_GenI</li>
+        </thingDefs>
+        <jobDef>AOTC_GamingX_GenI</jobDef>
+        <joyKind>AOTC_GamingX</joyKind>
+    </JoyGiverDef>
+
+    <JobDef>
+        <defName>AOTC_GamingX_GenI</defName>
+        <driverClass>JobDriver_WatchBuilding</driverClass>
+        <reportString>playing SKILL_HERE-training game.</reportString>
+        <joyDuration>4000</joyDuration>
+        <joyMaxParticipants>8</joyMaxParticipants>
+        <joySkill>SKILL_HERE</joySkill>
+        <joyXpPerTick>0.004</joyXpPerTick>
+        <joyKind>AOTC_GamingX</joyKind>
+        <taleOnCompletion>PlayedGame</taleOnCompletion>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    -->
+
+</Defs>

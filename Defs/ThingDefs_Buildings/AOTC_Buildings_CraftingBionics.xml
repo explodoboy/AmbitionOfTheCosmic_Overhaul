@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- This file contains the Cosmic Matter-drawing stations of AOTC. -->
+
+    <ThingDef ParentName="BenchBase" Name="AOTC_CraftingBionicsBase" Abstract="True">
+        <thingClass>Building_WorkTable</thingClass>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <minifiedDef />
+        <thingCategories Inherit="false" />
+        <size>(5,1)</size>
+        <fillPercent>0.5</fillPercent>
+        <staticSunShadowHeight>0.20</staticSunShadowHeight>
+        <castEdgeShadows>true</castEdgeShadows>
+        <inspectorTabs><li>ITab_Bills</li></inspectorTabs>
+        <building><spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity></building>
+        <designationCategory>AOTC</designationCategory> <!-- RimWorld will shit itself to death if you put this in something without a defName that's also not Abstract. -->
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <uiOrder>1300</uiOrder>
+        <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+        <surfaceType>Item</surfaceType>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <hasInteractionCell>true</hasInteractionCell>
+        <statBases>
+            <Flammability>0</Flammability>
+            <WorkToBuild>4500</WorkToBuild>
+        </statBases>
+        <placeWorkers>
+          <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <WorkGiverDef>
+        <defName>AOTC_CraftingBionics_GenI</defName>
+        <label>work at stellar bionics assembly bench</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Crafting</workType>
+		<priorityInType>100</priorityInType>
+		<fixedBillGiverDefs><li>AOTC_CraftingBionics_GenI</li></fixedBillGiverDefs>
+        <verb>Craft stellar bionics</verb>
+        <gerund>Crafting stellar bionics</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <ThingDef ParentName="AOTC_CraftingBionicsBase">
+        <defName>AOTC_CraftingBionics_GenI</defName>
+        <label>stellar bionics assembly bench</label>
+        <description>A workbench with equipment for assembling bionic implants, limbs, and organs out of starsteel.\n\nSTATS:\nConsumes 500 Watts</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Production/AOTC_CraftingBionics_GenI/AOTC_CraftingBionics_GenI</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(7,3)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <costList>
+            <AOTC_MaterialTough_GenI>25</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>2</AOTC_Component_GenI>
+        </costList>
+        <statBases>
+            <MaxHitPoints>750</MaxHitPoints>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>500</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
+            <li Class="CompProperties_Flickable" />
+        </comps>
+        <researchPrerequisites>
+            <li>AOTC_GenI_Bionics</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 2 "COSMISTELLAR" [==========] -->
+    
+</Defs>

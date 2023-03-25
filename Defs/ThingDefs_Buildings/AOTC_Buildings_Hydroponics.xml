@@ -1,0 +1,74 @@
+<Defs>
+    
+    <ThingDef ParentName="BuildingBase" Name="AOTC_HydroponicsBase" Abstract="True">
+        <thingClass>Building_PlantGrower</thingClass>
+        <castEdgeShadows>true</castEdgeShadows>
+        <altitudeLayer>LowPlant</altitudeLayer>
+        <defaultPlacingRot>East</defaultPlacingRot>
+        <passability>PassThroughOnly</passability>
+        <pathCost>30</pathCost>
+        <size>(1,4)</size>
+        <constructEffect>ConstructMetal</constructEffect>
+        <fillPercent>0.30</fillPercent>
+        <canOverlapZones>false</canOverlapZones>
+        <designationCategory>AOTC</designationCategory>
+        <tickerType>Rare</tickerType>
+        <statBases>
+            <WorkToBuild>2800</WorkToBuild>
+            <Flammability>0</Flammability>
+            <Cleanliness>0</Cleanliness>
+        </statBases>
+        <building>
+            <defaultPlantToGrow>Plant_Rice</defaultPlantToGrow>
+            <sowTag>Hydroponic</sowTag>
+            <buildingTags>
+                <li>Production</li>
+            </buildingTags>
+        </building>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_HydroponicsBase">
+        <defName>AOTC_Hydroponics_GenI</defName>
+        <label>stellar hydroponics basin</label>
+        <description>An artificial nutrient bath for growing plants, made with superior technology with a much higher effective soil fertility. The stellar hydroponics basin is also much cleaner than regular hydroponics basins. The nutrient pumps must work continuously; the plants will die if power is cut.\n\nSTATS:\nConsumes 120 Watts\nHas 500% fertility</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Production/AOTC_Hydroponics_GenI/AOTC_Hydroponics_GenI</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(1,4)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <fertility>5</fertility>
+        <costList>
+            <AOTC_MaterialTough_GenI>35</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>1</AOTC_Component_GenI>
+        </costList>
+        <statBases>
+            <MaxHitPoints>650</MaxHitPoints>
+            <Cleanliness>-1</Cleanliness>
+        </statBases>
+        <comps>
+          <li Class="CompProperties_Forbiddable"/>
+          <li Class="CompProperties_Power">
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>120</basePowerConsumption>
+          </li>
+          <li Class="CompProperties_Flickable"/>
+        </comps>
+        <researchPrerequisites>
+            <li>AOTC_GenI_Hydroponics</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 2 "COSMISTELLAR" [==========] -->
+
+</Defs>

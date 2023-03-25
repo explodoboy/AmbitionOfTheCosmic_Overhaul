@@ -1,0 +1,222 @@
+<Defs>
+
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality" Name="AOTC_BaseMeleeWeapon_Sharp_Quality_GenI" Abstract="True">
+        <techLevel>Ultra</techLevel>
+        <smeltable>false</smeltable>
+        <recipeMaker Inherit="False">
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Machining</soundWorking>
+            <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+            <recipeUsers><li>AOTC_CraftingMain_GenI</li></recipeUsers>
+            <researchPrerequisite>AOTC_GenI_WeaponsMelee</researchPrerequisite>
+            <defaultIngredientFilter><disallowedThingDefs Inherit="False" /></defaultIngredientFilter> <!-- Fuck it, let's let people make AOTC swords out of anything. Even wood, for the absolute madmen out there. -->
+        </recipeMaker>
+        <tradeTags>
+            <li>WeaponMelee</li> <!-- Putting this in here again so I can remember to have this disabled for ModOptions (mod settings) -->
+        </tradeTags>
+        <costList>
+            <AOTC_MaterialTough_GenI>80</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>2</AOTC_Component_GenI>
+        </costList>
+        <statBases>
+            <WorkToMake>18000</WorkToMake>
+            <Mass>2</Mass>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseMeleeWeapon_Blunt_Quality" Name="AOTC_BaseMeleeWeapon_Blunt_Quality_GenI" Abstract="True">
+        <techLevel>Ultra</techLevel>
+        <smeltable>false</smeltable>
+        <recipeMaker Inherit="False">
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Machining</soundWorking>
+            <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+            <recipeUsers><li>AOTC_CraftingMain_GenI</li></recipeUsers>
+            <researchPrerequisite>AOTC_GenI_WeaponsMelee</researchPrerequisite>
+            <defaultIngredientFilter><disallowedThingDefs Inherit="False" /></defaultIngredientFilter> <!-- Fuck it, let's let people make AOTC swords out of anything. Even wood, for the absolute madmen out there. -->
+        </recipeMaker>
+        <tradeTags>
+            <li>WeaponMelee</li> <!-- Putting this in here again so I can remember to have this disabled for ModOptions (mod settings) -->
+        </tradeTags>
+        <costList>
+            <AOTC_MaterialTough_GenI>80</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>2</AOTC_Component_GenI>
+        </costList>
+        <statBases>
+            <WorkToMake>18000</WorkToMake>
+            <Mass>2</Mass>
+        </statBases>
+    </ThingDef>
+    
+    <ThingDef ParentName="AOTC_BaseMeleeWeapon_Sharp_Quality_GenI">
+        <defName>AOTC_SlowSharp_GenI</defName>
+        <label>monoatomic sword</label>
+        <description>A longsword made of starsteel that maintains a mono-atomic cutting edge. It is designed to slice through armor as if it weren't there in the first place.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Equipment/WeaponMelee/AOTC_SlowSharp_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <weaponTags>
+            <li>LongSword</li>
+        </weaponTags>
+        <relicChance>5</relicChance> <!-- Putting this in here again so I can remember to have this disabled for ModOptions (mod settings). Pretty sure this is related to Ideology. -->
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <equippedAngleOffset>-65</equippedAngleOffset>
+        <tools> <!-- Basing damage numbers from Royalty DLC's Monosword, and cooldown time from the basegame Longsword. -->
+            <li>
+                <label>handle</label>  <!-- 10 DPS -->
+                <capacities>
+                <li>Blunt</li>
+                </capacities>
+                <power>28</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>point</label> <!-- 12.31 DPS -->
+                <capacities>
+                <li>Stab</li>
+                </capacities>
+                <power>45</power>
+                <cooldownTime>2.6</cooldownTime>
+                <armorPenetration>1.25</armorPenetration>
+            </li>
+            <li>
+                <label>edge</label> <!-- 12.31 DPS -->
+                <capacities>
+                <li>Cut</li>
+                </capacities>
+                <power>45</power>
+                <cooldownTime>2.6</cooldownTime>
+                <armorPenetration>1.25</armorPenetration>
+            </li>
+        </tools>
+    </ThingDef>
+    
+    <ThingDef ParentName="AOTC_BaseMeleeWeapon_Sharp_Quality_GenI">
+        <defName>AOTC_FastSharp_GenI</defName>
+        <label>R-Flail</label>
+        <description>A flail with monoatomic-sharp cutting edges made of starsteel, designed for rapid attacks to slice through armor.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Equipment/WeaponMelee/AOTC_FastSharp_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <weaponTags>
+            <!--li>LongSword</li-->
+        </weaponTags>
+        <relicChance>5</relicChance> <!-- Putting this in here again so I can remember to have this disabled for ModOptions (mod settings). Pretty sure this is related to Ideology. -->
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <equippedAngleOffset>-65</equippedAngleOffset>
+        <tools> <!-- Basing damage numbers from Royalty DLC's Monosword, and cooldown time from the basegame Longsword. -->
+            <li>
+                <label>handle</label>  <!-- 10 DPS -->
+                <capacities>
+                <li>Blunt</li>
+                </capacities>
+                <power>7</power>
+                <cooldownTime>0.5</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label> <!-- 12.31 DPS -->
+                <capacities>
+                <li>Cut</li>
+                </capacities>
+                <power>11</power>
+                <cooldownTime>0.65</cooldownTime>
+                <armorPenetration>1.25</armorPenetration>
+            </li>
+        </tools>
+    </ThingDef>
+    
+    <ThingDef ParentName="AOTC_BaseMeleeWeapon_Blunt_Quality_GenI">
+        <defName>AOTC_SlowBlunt_GenI</defName>
+        <label>The Block</label>
+        <description>A rectangular club made of starsteel, designed to utterly crush any armor that gets in its way, alongside any limbs underneath. Though difficult to hit with, a hit with one of The Block's corners deals devastating damage.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Equipment/WeaponMelee/AOTC_SlowBlunt_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <weaponTags>
+            <!--li>LongSword</li-->
+        </weaponTags>
+        <relicChance>5</relicChance> <!-- Putting this in here again so I can remember to have this disabled for ModOptions (mod settings). Pretty sure this is related to Ideology. -->
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <equippedAngleOffset>-65</equippedAngleOffset>
+        <tools> <!-- Basing damage numbers from Royalty DLC's Monosword, and cooldown time from the basegame Longsword. -->
+            <li>
+                <label>handle</label>  <!-- 10 DPS -->
+                <capacities>
+                <li>Poke</li>
+                </capacities>
+                <power>28</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>face</label> <!-- 12.31 DPS -->
+                <capacities>
+                <li>Blunt</li>
+                </capacities>
+                <power>45</power>
+                <cooldownTime>2.6</cooldownTime>
+                <armorPenetration>1.25</armorPenetration>
+            </li>
+            <li>
+                <label>edge</label> <!-- 12.31 DPS -->
+                <capacities>
+                <li>Blunt</li>
+                </capacities>
+                <power>45</power>
+                <cooldownTime>2.6</cooldownTime>
+                <armorPenetration>1.25</armorPenetration>
+            </li>
+            <li>
+                <label>corner</label> <!-- 12.31 DPS -->
+                <capacities>
+                <li>Poke</li>
+                </capacities>
+                <power>67</power>
+                <cooldownTime>2.6</cooldownTime>
+                <armorPenetration>1.25</armorPenetration>
+            </li>
+        </tools>
+    </ThingDef>
+    
+    <ThingDef ParentName="AOTC_BaseMeleeWeapon_Blunt_Quality_GenI">
+        <defName>AOTC_FastBlunt_GenI</defName>
+        <label>I-Flail</label>
+        <description>A flail with thick powered hitting rods capable of delivering a high amount of crushing force. Designed for rapid, focused attacks to crush armor.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Equipment/WeaponMelee/AOTC_FastBlunt_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <weaponTags>
+            <!--li>LongSword</li-->
+        </weaponTags>
+        <relicChance>5</relicChance> <!-- Putting this in here again so I can remember to have this disabled for ModOptions (mod settings). Pretty sure this is related to Ideology. -->
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <equippedAngleOffset>-65</equippedAngleOffset>
+        <tools> <!-- Basing damage numbers from Royalty DLC's Monosword, and cooldown time from the basegame Longsword. -->
+            <li>
+                <label>handle</label>  <!-- 10 DPS -->
+                <capacities>
+                <li>Blunt</li>
+                </capacities>
+                <power>7</power>
+                <cooldownTime>0.5</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label> <!-- 12.31 DPS -->
+                <capacities>
+                <li>Blunt</li>
+                </capacities>
+                <power>11</power>
+                <cooldownTime>0.65</cooldownTime>
+                <armorPenetration>1.25</armorPenetration>
+            </li>
+        </tools>
+    </ThingDef>
+
+</Defs>

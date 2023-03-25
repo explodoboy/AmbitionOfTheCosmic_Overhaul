@@ -1,0 +1,114 @@
+<Defs>
+
+    <ThingDef ParentName="AOTC_DrugBase" Name="AOTC_DrugSleepBase" Abstract="True">
+        <ingestible>
+            <joyKind>AOTC_Enchantment</joyKind>
+            <drugCategory>Social</drugCategory> <!-- According to the wiki, since this has no risk of addiction or overdose, this can be classified as 'social'. -->
+            <foodType>Processed, Fluid</foodType>
+            <baseIngestTicks>120</baseIngestTicks>
+            <ingestSound>Ingest_Inject</ingestSound>
+            <ingestHoldOffsetStanding>
+                <northDefault>
+                    <offset>(0.18,0,0)</offset>
+                </northDefault>
+            </ingestHoldOffsetStanding>
+            <ingestCommandString>Inject {0}</ingestCommandString>
+            <ingestReportString>Injecting {0}.</ingestReportString>
+            <useEatingSpeedStat>false</useEatingSpeedStat>
+            <chairSearchRadius>0</chairSearchRadius>
+        </ingestible>
+    </ThingDef>
+
+    <HediffDef Name="AOTC_DrugSleep_HediffBase" Abstract="True">
+        <hediffClass>HediffWithComps</hediffClass>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                    <severityPerDay>-0.95</severityPerDay>
+                    <showHoursToRecover>true</showHoursToRecover>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_DrugSleepBase">
+        <defName>AOTC_DrugSleep_GenI</defName>
+        <label>STIM-I</label>
+        <description>An injector containing mechanites that travel to the brain and performs tasks usually done during sleep, satisfying the need for rest, alongside stimulating the brain to enhance focus. STIM-I does not have risks of addiction or overdose.\n\nSTIM-I is used as a replacement for wake-up for the most competitive universities and companies of the most advanced societies, favored for its lack of any side-effects.\n\nSTATS:\nRemoves need of rest\nDose gives 1 day of effect\nDuration does not stack\nIf Royalty DLC active, grants Psyfocus</description>
+        <descriptionHyperlinks>
+            <HediffDef>AOTC_DrugSleep_GenI</HediffDef>
+        </descriptionHyperlinks>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Drug/AOTC_DrugSleep_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>50</MarketValue>
+        </statBases>
+        <ingestible>
+            <joyKind>Chemical</joyKind>
+            <joy>0.1</joy>
+            <baseIngestTicks>120</baseIngestTicks>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>AOTC_DrugSleep_GenI</hediffDef>
+                    <severity>1</severity>
+                </li>
+                <li Class="IngestionOutcomeDoer_OffsetNeed">
+                    <need>Rest</need>
+                    <offset>1</offset>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+        <researchPrerequisites>
+            <li>AOTC_GenI_MedicineAndDrugs</li>
+        </researchPrerequisites>
+        <comps>
+            <li Class="CompProperties_Drug">
+                <addictiveness>0</addictiveness>
+                <existingAddictionSeverityOffset>0</existingAddictionSeverityOffset>
+                <needLevelOffset>0</needLevelOffset>
+                <isCombatEnhancingDrug>false</isCombatEnhancingDrug>
+                <listOrder>200</listOrder>
+                <overdoseSeverityOffset>0</overdoseSeverityOffset>
+                <largeOverdoseChance>0</largeOverdoseChance>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <HediffDef ParentName="AOTC_DrugSleep_HediffBase">
+        <defName>AOTC_DrugSleep_GenI</defName>
+        <label>high on STIM-I</label>
+        <labelNoun>a STIM-I high</labelNoun>
+        <description>Charged STIM-I mechanites in the brain. The mechanites are actively satisfying the need of sleep and stimulating the brain to enhance focus. The mechanites will eventually lose charge and will eventually be filtered out of the body harmlessly.</description>
+        <defaultLabelColor>(255,60,0)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <stages>
+            <li>
+                <restFallFactor>0</restFallFactor>
+                <statOffsets>
+                    <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
+                    <MeditationFocusGain MayRequire="Ludeon.RimWorld.Royalty">0.5</MeditationFocusGain>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
+  
+    <ThoughtDef>
+      <defName>AOTC_DrugSleep_GenI</defName>
+      <workerClass>ThoughtWorker_Hediff</workerClass>
+      <hediff>AOTC_DrugSleep_GenI</hediff>
+      <validWhileDespawned>true</validWhileDespawned>
+      <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+      <stages>
+        <li>
+          <label>high on STIM-I</label>
+          <description>I feel awake and focused. It's nice feeling so alert.</description>
+          <baseMoodEffect>3</baseMoodEffect>
+        </li>
+      </stages>
+    </ThoughtDef>
+    
+</Defs>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <XmlExtensions.SettingsMenuDef>
+        <defName>AOTC_ModSettings</defName>
+        <modId>explodoboy.AmbitionOfTheCosmic</modId>
+        <label>Ambition Of The Cosmic</label>
+        <settings>
+            <li Class="XmlExtensions.Setting.SetColor">
+                <color>(255,255,0)</color>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>Ambition Of The Cosmic</text>
+                <font>Medium</font>
+                <anchor>Middle</anchor>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>Settings require a game restart to apply!</text>
+                <font>Small</font>
+                <anchor>Middle</anchor>
+            </li>
+            <li Class="XmlExtensions.Setting.SetColor">
+                <color>(255,0,0)</color>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>(Settings currently in progress, changing settings currently does nothing. Settings will probably come with Gen2.)</text>
+                <font>Small</font>
+                <anchor>Middle</anchor>
+            </li>
+            <li Class="XmlExtensions.Setting.SetColor"/>
+            <li Class="XmlExtensions.Setting.ResetSettings"/>
+
+            <li Class="XmlExtensions.Setting.GapLine"/>
+            <li Class="XmlExtensions.Setting.SplitColumn">
+                <leftCol>
+                    <li Class="XmlExtensions.Setting.SplitColumn">
+                        <leftCol>
+                            <li Class="XmlExtensions.Setting.Text">
+                                <text>Highest Unlockable Generation: The highest generation that can be research and items crafted in. All generations above will become unresearchable, and their items will become uncraftable.\n\n\nDefault: Gen6</text>
+                                <anchor>Left</anchor>
+                            </li>
+                            <li Class="XmlExtensions.Setting.RadioButtons">
+                                <key>AOTC_HighestUnlockableGeneration</key>
+                                <defaultValue>Gen6</defaultValue>
+                                <buttons>
+                                    <li>
+                                        <value>Gen0</value>
+                                        <label>Disabled</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen1</value>
+                                        <label>Gen1 "Stellar"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen2</value>
+                                        <label>Gen2 "Cosmistellar"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen3</value>
+                                        <label>Gen3 "Cosmic"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen4</value>
+                                        <label>Gen4 "Grand"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen5</value>
+                                        <label>Gen5 "Spiral"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen6</value>
+                                        <label>Gen6 "Zenith"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen7</value>
+                                        <label>Gen7 "Ascendant"</label>
+                                    </li>
+                                </buttons>
+                            </li>
+                        </leftCol>
+                        <rightCol>
+                            <li Class="XmlExtensions.Setting.Text">
+                                <text>Highest Spawnable Generation: The highest generation of items that can randomly spawn in the world. Doesn't include prerequisite items for unlockable generations or materials.\n\n\n\nDefault: Gen2</text>
+                                <anchor>Left</anchor>
+                            </li>
+                            <li Class="XmlExtensions.Setting.RadioButtons">
+                                <key>AOTC_HighestSpawnableGeneration</key>
+                                <defaultValue>Gen2</defaultValue>
+                                <buttons>
+                                    <li>
+                                        <value>Gen0</value>
+                                        <label>Disabled</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen1</value>
+                                        <label>Gen1 "Stellar"</label>
+                                        </li>
+                                    <li>
+                                        <value>Gen2</value>
+                                        <label>Gen2 "Cosmistellar"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen3</value>
+                                        <label>Gen3 "Cosmic"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen4</value>
+                                        <label>Gen4 "Grand"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen5</value>
+                                        <label>Gen5 "Spiral"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen6</value>
+                                        <label>Gen6 "Zenith"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen7</value>
+                                        <label>Gen7 "Ascendant"</label>
+                                    </li>
+                                </buttons>
+                            </li>
+                        </rightCol>
+                    </li>
+                </leftCol>
+                <rightCol>
+                    <li Class="XmlExtensions.Setting.SplitColumn">
+                        <leftCol>
+                            <li Class="XmlExtensions.Setting.Text">
+                                <text>Highest Resource Generation: The highest generation of resource items that can randomly spawn in the world. Only allows basic materials (building materials) to spawn, and not any generational components.\n\nDefault: Gen3</text>
+                                <anchor>Left</anchor>
+                            </li>
+                            <li Class="XmlExtensions.Setting.RadioButtons">
+                                <key>AOTC_HighestResourceGeneration</key>
+                                <defaultValue>Gen3</defaultValue>
+                                <buttons>
+                                    <li>
+                                        <value>Gen0</value>
+                                        <label>Disabled</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen1</value>
+                                        <label>Gen1 "Stellar"</label>
+                                        </li>
+                                    <li>
+                                        <value>Gen2</value>
+                                        <label>Gen2 "Cosmistellar"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen3</value>
+                                        <label>Gen3 "Cosmic"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen4</value>
+                                        <label>Gen4 "Grand"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen5</value>
+                                        <label>Gen5 "Spiral"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen6</value>
+                                        <label>Gen6 "Zenith"</label>
+                                    </li>
+                                    <li>
+                                        <value>Gen7</value>
+                                        <label>Gen7 "Ascendant"</label>
+                                    </li>
+                                </buttons>
+                            </li>
+                        </leftCol>
+                        <rightCol>
+
+                        </rightCol>
+                    </li>
+                </rightCol>
+            </li>
+
+            <li Class="XmlExtensions.Setting.GapLine"/>
+            <li Class="XmlExtensions.Setting.ResetSettings"/>
+        </settings>
+    </XmlExtensions.SettingsMenuDef>
+</Defs>

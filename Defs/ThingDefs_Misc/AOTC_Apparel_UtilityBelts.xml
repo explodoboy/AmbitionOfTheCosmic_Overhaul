@@ -1,0 +1,152 @@
+<Defs>
+
+    <MVCF.ModDef>
+        <defName>AOTC_MVCF</defName>
+        <label>Ambition of the Cosmic</label>
+        <description>AOTC v3.0 stuffs</description>
+        <ActivateFeatures>
+            <li>ApparelVerbs</li>
+            <li>IntegratedToggle</li>
+        </ActivateFeatures>
+    </MVCF.ModDef>
+    
+    <ThingDef ParentName="ApparelBase" Name="AOTC_ShieldBeltBase" Abstract="True">
+        <tickerType>Normal</tickerType>
+        <thingClass>Apparel</thingClass>
+        <techLevel>Archotech</techLevel>
+        <statBases>
+            <MaxHitPoints>150</MaxHitPoints>
+            <Mass>3</Mass>
+            <WorkToMake>14000</WorkToMake>
+            <Flammability>0</Flammability>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Shield">
+                <compClass>Armorshield.CompShieldRanged</compClass>
+            </li>
+        </comps>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+        <thingCategories>
+            <li>ApparelUtility</li>
+        </thingCategories>
+        <apparel>
+            <wornGraphicData>
+                <renderUtilityAsPack>true</renderUtilityAsPack>
+                <east>
+                    <offset>(-0.35,-0.05)</offset>
+                    <thin><offset>(0.05,0)</offset></thin>
+                    <hulk><offset>(-0.1,0)</offset></hulk>
+                    <fat><offset>(-0.15,0)</offset></fat>
+                </east>
+                <west>
+                    <offset>(0.35,-0.05)</offset>
+                    <thin><offset>(-0.05,0)</offset></thin>
+                    <hulk><offset>(0.1,0)</offset></hulk>
+                    <fat><offset>(0.15,0)</offset></fat>
+                </west>
+                <male>  <scale>(0.9,0.75)</scale></male>
+                <female><scale>(0.9,0.75)</scale></female>
+                <thin>  <scale>(0.7,0.7)</scale></thin>
+                <hulk>  <scale>(1.1,0.9)</scale></hulk>
+                <fat>   <scale>(1.2,0.9)</scale></fat>
+            </wornGraphicData>
+            <scoreOffset>4</scoreOffset>
+            <countsAsClothingForNudity>false</countsAsClothingForNudity>
+            <careIfWornByCorpse>false</careIfWornByCorpse>
+            <careIfDamaged>false</careIfDamaged>
+            <wearPerDay>0</wearPerDay>
+            <bodyPartGroups>
+                <li>Waist</li>
+            </bodyPartGroups>
+            <layers>
+                <li>Belt</li>
+            </layers>
+            <tags>
+                <li>BeltDefense</li>
+            </tags>
+            <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+        </apparel>
+        <allowedArchonexusCount>10</allowedArchonexusCount>
+        <tradeTags>
+            <li>Armor</li>
+        </tradeTags>
+    </ThingDef>
+
+    <ThingDef ParentName="AOTC_ShieldBeltBase">
+        <defName>AOTC_UtilityBelt_GenI</defName>
+        <label>stellar utility pack</label>
+        <description>A multi-purpose utility pack attached to the waist with a personal shield. The personal shield protects against incoming projectiles and shrapnel, but does not protect against melee attacks or heat and shuts down instantly if hit by an EMP. Unlike regular personal shields, the stellar utility pack allows for its user to shoot with the shield active.\n\nIf Royalty is enabled, the utility pack gains the functionality of a jump pack.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Pawn/Humanlike/Apparel/AOTC_UtilityBelt_GenI/AOTC_UtilityBelt_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <apparel>
+            <wornGraphicPath>BaseAOTC/Things/Pawn/Humanlike/Apparel/AOTC_UtilityBelt_GenI/AOTC_UtilityBelt_GenI</wornGraphicPath>
+        </apparel>
+        <techLevel>Ultra</techLevel>
+        <statBases>
+            <EnergyShieldRechargeRate>0.13</EnergyShieldRechargeRate>
+            <EnergyShieldEnergyMax>1.1</EnergyShieldEnergyMax>
+            <EquipDelay>1</EquipDelay>
+            <JumpRange MayRequire="Ludeon.RimWorld.Royalty">23.9</JumpRange>
+        </statBases>
+        <verbs>
+            <li MayRequire="Ludeon.RimWorld.Royalty">
+                <verbClass>Verb_Jump</verbClass>
+                <label>jump</label>
+                <violent>false</violent>
+                <hasStandardCommand>true</hasStandardCommand>
+                <onlyManualCast>True</onlyManualCast>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <warmupTime>0.5</warmupTime>
+                <warmupEffecter>JumpWarmupEffect</warmupEffecter>
+                <requireLineOfSight>true</requireLineOfSight>
+                <flightEffecterDef>JumpFlightEffect</flightEffecterDef>
+                <soundLanding>JumpPackLand</soundLanding>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                    <canTargetPawns>false</canTargetPawns>
+                    <canTargetBuildings>false</canTargetBuildings>
+                </targetParams>
+            </li>
+        </verbs>
+        <comps>
+            <li Class="MVCF.Comps.CompProperties_VerbGiver" MayRequire="Ludeon.RimWorld.Royalty">
+                <verbProps>
+                    <li>
+                        <label>jump</label>
+                        <description>Leap a long distance, flying straight over passable obstacles. Has a cooldown of an hour.</description>
+                        <comps>
+                            <li Class="MVCF.VerbComps.VerbCompProperties_Cooldown">
+                                <compClass>MVCF.VerbComps.VerbComp_Cooldown</compClass>
+                                <cooldownTime>41.66</cooldownTime> <!-- almost exactly 1 in-game hour -->
+                            </li>
+                        </comps>
+                    </li>
+                </verbProps>
+            </li>
+        </comps>
+        <costList> <!-- REPLACE ITEMS -->
+            <AOTC_MaterialTough_GenI>75</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>5</AOTC_Component_GenI>
+        </costList>
+        <recipeMaker>
+            <unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
+            <researchPrerequisite>AOTC_GenI_Armor</researchPrerequisite>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Machining</soundWorking>
+            <recipeUsers>
+                <li>AOTC_CraftingMain_GenI</li>
+            </recipeUsers>
+            <useIngredientsForColor>false</useIngredientsForColor>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+    </ThingDef>
+
+</Defs>

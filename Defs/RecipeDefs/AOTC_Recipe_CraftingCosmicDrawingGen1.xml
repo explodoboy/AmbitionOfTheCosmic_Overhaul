@@ -1,0 +1,44 @@
+<Defs>
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>AOTC_UnfinishedResourceIngredientFilled_GenI</defName>
+        <label>partially-filled proto-cosmic charge</label>
+        <description>A proto-cosmic capacitor partially filled with proto-cosmic charge.</description>
+        <statBases>
+            <Flammability>0</Flammability>
+        </statBases>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Unfinished/AOTC_UnfinishedResourceIngredientFilled_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories Inherit="false" />
+      </ThingDef>
+
+    <RecipeDef Name="AOTC_GenI_CraftingCosmicDrawingRecipeBase" Abstract="True"> <!-- Cosmic drawing facilities don't get any bonuses from skill or workspeed. -->
+        <unfinishedThingDef>AOTC_UnfinishedResourceIngredientFilled_GenI</unfinishedThingDef>
+		<skillRequirements><Crafting>10</Crafting></skillRequirements>
+		<recipeUsers><li>AOTC_CraftingCosmicDrawing_GenI</li></recipeUsers>
+    </RecipeDef>
+
+
+    <!-- Recipes -->
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingCosmicDrawingRecipeBase">
+		<defName>AOTC_ResourceIngedientFilled_GenI</defName>
+		<label>fill proto-cosmic capacitor</label>
+		<description>Fill a proto-cosmic capacitor with proto-cosmic charge.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_ResourceIngedientUnfilled_GenI</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_ResourceIngedientUnfilled_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>1500</workAmount>
+		<products><AOTC_ResourceIngedientFilled_GenI>1</AOTC_ResourceIngedientFilled_GenI></products>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString></jobString>
+    </RecipeDef>
+
+</Defs>

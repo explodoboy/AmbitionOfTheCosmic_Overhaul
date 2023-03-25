@@ -1,0 +1,105 @@
+<Defs>
+
+    <ThingDef ParentName="BaseMakeableGun" Name="AOTC_ShotgunBase" Abstract="True">
+        <soundInteract>Interact_ChargeRifle</soundInteract>
+        <statBases>
+            <Mass>5</Mass>
+            <!--WorkToMake>45000</WorkToMake--> <!-- Use this as reference for recipes in crafting station. -->
+        </statBases>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <weaponTags>
+            <li>SpacerGun</li>
+        </weaponTags>
+        <tradeTags>
+            <li>WeaponRanged</li>
+        </tradeTags>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+            <li>RewardStandardMidFreq</li>
+        </thingSetMakerTags>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_ShotgunBase">
+        <defName>AOTC_Shotgun_GenI</defName>
+        <label>stellar wavegun</label>
+        <description>A shotgun-like weapon that launches condensed atmosphere heated into a dense plasma, held tightly together by a magnetic field. The projectile launched by the stellar wavegun has immense penetrating power.</description>
+        <techLevel>Ultra</techLevel>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Equipment/WeaponRanged/AOTC_Shotgun_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <WorkToMake>45000</WorkToMake>
+            <AccuracyTouch>0.75</AccuracyTouch>
+            <AccuracyShort>0.72</AccuracyShort>
+            <AccuracyMedium>0.62</AccuracyMedium>
+            <AccuracyLong>0.59</AccuracyLong>
+            <RangedWeapon_Cooldown>0.75</RangedWeapon_Cooldown>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>AOTC_ShotgunBullet_GenI</defaultProjectile>
+                <warmupTime>0.7</warmupTime>
+                <range>20.9</range>
+                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <recipeMaker>
+            <recipeUsers Inherit="False">
+                <li>AOTC_CraftingMain_GenI</li>
+            </recipeUsers>
+            <researchPrerequisite>AOTC_GenI_WeaponsRanged</researchPrerequisite>
+        </recipeMaker>
+        <costList>
+            <AOTC_MaterialTough_GenI>50</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>2</AOTC_Component_GenI>
+        </costList>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>AOTC_ShotgunBullet_GenI</defName>
+        <label>stellar wavegun projectile</label>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Projectile/AOTC_ShotgunBullet_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>21</damageAmountBase>
+            <armorPenetrationBase>0.9</armorPenetrationBase>
+            <stoppingPower>2</stoppingPower>
+            <speed>90</speed>
+        </projectile>
+    </ThingDef>
+
+</Defs>

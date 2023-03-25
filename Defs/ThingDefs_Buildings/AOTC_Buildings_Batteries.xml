@@ -1,0 +1,74 @@
+<Defs>
+
+    <ThingDef ParentName="BuildingBase" Name="AOTC_BatteryBase" Abstract="True">
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <thingClass>Building_Battery</thingClass>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <blockWind>true</blockWind>
+        <castEdgeShadows>true</castEdgeShadows>
+        <fillPercent>0.40</fillPercent>
+        <tickerType>Normal</tickerType>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsPower</li>
+        </thingCategories>
+        <statBases>
+            <WorkToBuild>1200</WorkToBuild>
+            <Mass>20</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <building>
+            <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+        </building>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <designationCategory>AOTC</designationCategory>
+        <staticSunShadowHeight>0.2</staticSunShadowHeight>
+        <constructEffect>ConstructMetal</constructEffect>
+        <canOverlapZones>false</canOverlapZones>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_BatteryBase">
+        <defName>AOTC_Battery_GenI</defName>
+        <label>stellar battery</label>
+        <description>Stores electricity for later use. The battery stores 100% of the energy input into it, and does not explode or take damage when exposed to rain.\n\nSTATS:\nStores 2500 Wd\nIf RT Fuse is enabled, mitigates up to 2500 Wd during a Zzzt... event.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Power/AOTC_Battery_GenI/AOTC_Battery_GenI</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,4)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <size>(1,2)</size>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Beauty>10</Beauty>
+        </statBases>
+        <costList>
+            <AOTC_MaterialTough_GenI>50</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>2</AOTC_Component_GenI>
+        </costList>
+        <comps>
+          <li Class="CompProperties_Battery">
+            <storedEnergyMax>2500</storedEnergyMax>
+            <efficiency>1</efficiency>
+            <shortCircuitInRain>false</shortCircuitInRain>
+            <transmitsPower>true</transmitsPower>
+          </li>
+        </comps>
+        <researchPrerequisites>
+            <li>AOTC_GenI_Battery</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 2 "COSMISTELLAR" [==========] -->
+</Defs>

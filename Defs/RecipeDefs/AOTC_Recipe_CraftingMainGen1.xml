@@ -1,0 +1,560 @@
+<Defs>
+
+	<ThingDef ParentName="UnfinishedBase">
+		<defName>AOTC_UnfinishedMaterial_GenI</defName>
+		<label>unfinished starsteel</label>
+		<description>Some unfinished variant of Starsteel.</description>
+		<statBases>
+			<Flammability>0</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>BaseAOTC/Things/Item/Unfinished/AOTC_UnfinishedMaterial_GenI</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stuffCategories Inherit="false" />
+	</ThingDef>
+
+	<ThingDef ParentName="UnfinishedBase">
+		<defName>AOTC_UnfinishedResourceIngedientUnfilled_GenI</defName>
+		<label>unfinished proto-cosmic capacitor</label>
+		<description>An unfinished proto-cosmic capacitor.</description>
+		<statBases>
+			<Flammability>0</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>BaseAOTC/Things/Item/Unfinished/AOTC_UnfinishedResourceIngedientUnfilled_GenI</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stuffCategories Inherit="false" />
+	</ThingDef>
+
+	<ThingDef ParentName="UnfinishedBase">
+		<defName>AOTC_UnfinishedNaniteDrug_GenI</defName>
+		<label>unfinished starsteel mechanite injector</label>
+		<description>An unfinished starsteel-based mechanite injector.</description>
+		<statBases>
+			<Flammability>0</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>BaseAOTC/Things/Item/Unfinished/AOTC_UnfinishedNaniteDrug_GenI</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stuffCategories Inherit="false" />
+	</ThingDef>
+
+	<ThingDef ParentName="UnfinishedBase">
+		<defName>AOTC_UnfinishedMedicine_GenI</defName>
+		<label>unfinished stellar medicine</label>
+		<description>An unfinished kit of starsteel-based medicine.</description>
+		<statBases>
+			<Flammability>0</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>BaseAOTC/Things/Item/Unfinished/AOTC_UnfinishedMedicine_GenI</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stuffCategories Inherit="false" />
+	</ThingDef>
+
+    <RecipeDef Name="AOTC_GenI_CraftingMainRecipeBase" Abstract="True">
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <workSkill>Crafting</workSkill>
+		<skillRequirements><Crafting>10</Crafting></skillRequirements>
+		<recipeUsers><li>AOTC_CraftingMain_GenI</li></recipeUsers>
+    </RecipeDef>
+
+    <!-- // EXAMPLE RECIPE \\
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>DEFNAME_HERE</defName>
+		<label>LABEL_HERE</label>
+		<description>DESCRIPTION_HERE</description>
+		<ingredients>
+			<li><filter><thingDefs><li>ITEM_1</li></thingDefs></filter><count>NUMBER_HERE</count></li>
+			<li><filter><thingDefs><li>ITEM_2</li></thingDefs></filter><count>NUMBER_HERE</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>ITEM_1</li>
+				<li>ITEM_2</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products><OUTPUT_HERE>NUMBER_HERE</OUTPUT_HERE></products>
+		<researchPrerequisite>RESEARCH_HERE</researchPrerequisite>
+		<jobString></jobString>
+    </RecipeDef>
+    -->
+
+
+    <!-- Base Resources -->
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_MaterialToughGenI_Standard</defName>
+		<label>infuse starsteel</label>
+		<description>Create an alloy of plasteel, gold, and uranium, and infuse it with proto-cosmic charge to create starsteel.\n\nThe proto-cosmic charge used in the infusion process will be refunded as an emptied proto-cosmic capacitor.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>5</count></li>
+			<li><filter><thingDefs><li>Gold</li></thingDefs></filter><count>0.5</count></li>
+			<li><filter><thingDefs><li>Uranium</li></thingDefs></filter><count>1</count></li>
+			<li><filter><thingDefs><li>AOTC_ResourceIngedientFilled_GenI</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Plasteel</li>
+				<li>Gold</li>
+				<li>Uranium</li>
+				<li>AOTC_ResourceIngedientFilled_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>600</workAmount>
+		<products>
+            <AOTC_MaterialTough_GenI>5</AOTC_MaterialTough_GenI>
+            <AOTC_ResourceIngedientUnfilled_GenI>1</AOTC_ResourceIngedientUnfilled_GenI>
+        </products>
+        <unfinishedThingDef>AOTC_UnfinishedMaterial_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Infusing starsteel.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_MaterialToughGenI_StandardBulk</defName>
+		<label>bulk infuse starsteel</label>
+		<description>Create an alloy of plasteel, gold, and uranium, and infuse it with proto-cosmic charge to create starsteel.\n\nThe proto-cosmic charge used in the infusion process will be refunded as an emptied proto-cosmic capacitor.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>25</count></li>
+			<li><filter><thingDefs><li>Gold</li></thingDefs></filter><count>2.5</count></li>
+			<li><filter><thingDefs><li>Uranium</li></thingDefs></filter><count>5</count></li>
+			<li><filter><thingDefs><li>AOTC_ResourceIngedientFilled_GenI</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Plasteel</li>
+				<li>Gold</li>
+				<li>Uranium</li>
+				<li>AOTC_ResourceIngedientFilled_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>3000</workAmount>
+		<products>
+            <AOTC_MaterialTough_GenI>25</AOTC_MaterialTough_GenI>
+            <AOTC_ResourceIngedientUnfilled_GenI>5</AOTC_ResourceIngedientUnfilled_GenI>
+        </products>
+        <unfinishedThingDef>AOTC_UnfinishedMaterial_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Bulk infusing starsteel.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_MaterialToughGenI_FromBad</defName>
+		<label>reinfuse flawed starsteel</label>
+		<description>Remelt and infuse flawed starsteel to create starsteel.\n\nThe proto-cosmic charge used in the infusion process will be refunded as an emptied proto-cosmic capacitor.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialToughBad_GenI</li></thingDefs></filter><count>5</count></li>
+			<li><filter><thingDefs><li>AOTC_ResourceIngedientFilled_GenI</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialToughBad_GenI</li>
+				<li>AOTC_ResourceIngedientFilled_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>300</workAmount>
+		<products>
+            <AOTC_MaterialTough_GenI>5</AOTC_MaterialTough_GenI>
+            <AOTC_ResourceIngedientUnfilled_GenI>1</AOTC_ResourceIngedientUnfilled_GenI>
+        </products>
+        <unfinishedThingDef>AOTC_UnfinishedMaterial_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Reinfusing flawed starsteel.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_MaterialToughGenI_FromBadBulk</defName>
+		<label>bulk reinfuse flawed starsteel</label>
+		<description>Remelt and infuse flawed starsteel to create starsteel.\n\nThe proto-cosmic charges used in the infusion process will be refunded as emptied proto-cosmic capacitors.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialToughBad_GenI</li></thingDefs></filter><count>25</count></li>
+			<li><filter><thingDefs><li>AOTC_ResourceIngedientFilled_GenI</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialToughBad_GenI</li>
+				<li>AOTC_ResourceIngedientFilled_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>1500</workAmount>
+		<products>
+            <AOTC_MaterialTough_GenI>25</AOTC_MaterialTough_GenI>
+            <AOTC_ResourceIngedientUnfilled_GenI>5</AOTC_ResourceIngedientUnfilled_GenI>
+        </products>
+        <unfinishedThingDef>AOTC_UnfinishedMaterial_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Bulk reinfusing flawed starsteel.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_MaterialBeautyGenI_Standard</defName>
+		<label>forge opulent starsteel</label>
+		<description>Carefully infuse starsteel with gold to create opulent starsteel.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>5</count></li>
+			<li><filter><thingDefs><li>Gold</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+				<li>Gold</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>300</workAmount>
+		<products><AOTC_MaterialBeauty_GenI>5</AOTC_MaterialBeauty_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedMaterial_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Forging opulent starsteel.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_MaterialBeautyGenI_Bulk</defName>
+		<label>bulk forge opulent starsteel</label>
+		<description>Carefully infuse starsteel with gold to create opulent starsteel.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>25</count></li>
+			<li><filter><thingDefs><li>Gold</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+				<li>Gold</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>1500</workAmount>
+		<products><AOTC_MaterialBeauty_GenI>25</AOTC_MaterialBeauty_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedMaterial_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Bulk forging opulent starsteel.</jobString>
+    </RecipeDef>
+
+
+    <!-- Base Resource Precursors -->
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_ResourceIngedientUnfilled_GenI</defName>
+		<label>manufacture proto-cosmic capacitor</label>
+		<description>Manufacture a container capable of storing proto-cosmic charge.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>5</count></li>
+			<li><filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Plasteel</li>
+				<li>ComponentSpacer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products><AOTC_ResourceIngedientUnfilled_GenI>1</AOTC_ResourceIngedientUnfilled_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedResourceIngedientUnfilled_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Manufacturing proto-cosmic capacitor.</jobString>
+    </RecipeDef>
+    
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_ResourceIngedientUnfilled_GenI_Bulk</defName>
+		<label>bulk manufacture proto-cosmic capacitor</label>
+		<description>Manufacture five containers capable of storing proto-cosmic charge.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>25</count></li>
+			<li><filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Plasteel</li>
+				<li>ComponentSpacer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products><AOTC_ResourceIngedientUnfilled_GenI>5</AOTC_ResourceIngedientUnfilled_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedResourceIngedientUnfilled_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Bulk manufacturing proto-cosmic capacitor.</jobString>
+    </RecipeDef>
+
+
+    <!-- Components -->
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_Component_GenI</defName>
+		<label>manufacture starsteel component</label>
+		<description>Manufacture a starsteel component.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>10</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>900</workAmount>
+		<products><AOTC_Component_GenI>1</AOTC_Component_GenI></products>
+        <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Manufacturing starsteel component.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_Component_GenI_Bulk</defName>
+		<label>bulk manufacture starsteel components</label>
+		<description>Manufacture five starsteel components.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>50</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>4500</workAmount>
+		<products><AOTC_Component_GenI>5</AOTC_Component_GenI></products>
+        <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MaterialProduction</researchPrerequisite>
+		<jobString>Manufacturing starsteel component.</jobString>
+    </RecipeDef>
+        
+
+    <!-- Drugs -->
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugImmune_GenI</defName>
+		<label>manufacture AEGIS-I</label>
+		<description>Manufacture AEGIS-I mechanites and an injector.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>900</workAmount>
+		<products><AOTC_DrugImmune_GenI>2</AOTC_DrugImmune_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing AEGIS-I.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugImmune_GenI_Bulk</defName>
+		<label>bulk manufacture AEGIS-I</label>
+		<description>Manufacture AEGIS-I mechanites and injectors.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>900</workAmount>
+		<products><AOTC_DrugImmune_GenI>10</AOTC_DrugImmune_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing AEGIS-I.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugMood_GenI</defName>
+		<label>manufacture BLISS-I</label>
+		<description>Manufacture BLISS-I mechanites and an injector.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>900</workAmount>
+		<products><AOTC_DrugMood_GenI>2</AOTC_DrugMood_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing BLISS-I.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugMood_GenI_Bulk</defName>
+		<label>bulk manufacture BLISS-I</label>
+		<description>Manufacture BLISS-I mechanites and injectors.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>900</workAmount>
+		<products><AOTC_DrugMood_GenI>10</AOTC_DrugMood_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing BLISS-I.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugPsychicBoost_GenI</defName>
+		<label>manufacture PSION-I</label>
+		<description>Manufacture PSION-I mechanites and an injector.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>900</workAmount>
+		<products><AOTC_DrugPsychicBoost_GenI>1</AOTC_DrugPsychicBoost_GenI></products>
+		<recipeUsers Inherit="False"/>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing PSION-I.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugPsychicBoost_GenI_Bulk</defName>
+		<label>bulk manufacture PSION-I</label>
+		<description>Manufacture PSION-I mechanites and injectors.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>900</workAmount>
+		<recipeUsers Inherit="False"/>
+		<products><AOTC_DrugPsychicBoost_GenI>5</AOTC_DrugPsychicBoost_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing PSION-I.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugSleep_GenI</defName>
+		<label>manufacture STIM-I</label>
+		<description>Manufacture STIM-I mechanites and an injector.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>900</workAmount>
+		<products><AOTC_DrugSleep_GenI>1</AOTC_DrugSleep_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing STIM-I.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugSleep_GenI_Bulk</defName>
+		<label>bulk manufacture STIM-I</label>
+		<description>Manufacture STIM-I mechanites and injectors.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>900</workAmount>
+		<products><AOTC_DrugSleep_GenI>5</AOTC_DrugSleep_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing STIM-I.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugTemporaryBionics_GenI</defName>
+		<label>manufacture SURGE-I</label>
+		<description>Manufacture a SURGE-I mechanite injector.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>5</count></li>
+			<li><filter><thingDefs><li>AOTC_ResourceIngedientFilled_GenI</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+				<li>AOTC_ResourceIngedientFilled_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>300</workAmount>
+		<products><AOTC_DrugTemporaryBionics_GenI>1</AOTC_DrugTemporaryBionics_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing SURGE-I.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_DrugTemporaryBionics_GenI_Bulk</defName>
+		<label>bulk manufacture SURGE-I</label>
+		<description>Manufacture five SURGE-I mechanite injectors.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>25</count></li>
+			<li><filter><thingDefs><li>AOTC_ResourceIngedientFilled_GenI</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+				<li>AOTC_ResourceIngedientFilled_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>1500</workAmount>
+		<products><AOTC_DrugTemporaryBionics_GenI>5</AOTC_DrugTemporaryBionics_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedNaniteDrug_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Bulk manufacturing SURGE-I.</jobString>
+    </RecipeDef>
+
+
+    <!-- Medicine -->
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_Medicine_GenI</defName>
+		<label>manufacture stellar medicine</label>
+		<description>Manufacture a kit of stellar medicine.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>1</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>120</workAmount>
+		<products><AOTC_Medicine_GenI>1</AOTC_Medicine_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedMedicine_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Manufacturing stellar medicine.</jobString>
+    </RecipeDef>
+
+    <RecipeDef ParentName="AOTC_GenI_CraftingMainRecipeBase">
+		<defName>AOTC_Medicine_GenI_Bulk</defName>
+		<label>bulk manufacture stellar medicine</label>
+		<description>Manufacture five kits of stellar medicine.</description>
+		<ingredients>
+			<li><filter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></filter><count>5</count></li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AOTC_MaterialTough_GenI</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workAmount>600</workAmount>
+		<products><AOTC_Medicine_GenI>5</AOTC_Medicine_GenI></products>
+        <unfinishedThingDef>AOTC_UnfinishedMedicine_GenI</unfinishedThingDef>
+		<researchPrerequisite>AOTC_GenI_MedicineAndDrugs</researchPrerequisite>
+		<jobString>Bulk manufacturing stellar medicine.</jobString>
+    </RecipeDef>
+
+</Defs>

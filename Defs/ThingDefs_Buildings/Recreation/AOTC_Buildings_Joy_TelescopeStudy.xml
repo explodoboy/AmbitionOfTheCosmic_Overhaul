@@ -1,0 +1,65 @@
+<Defs>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_JoyBase">
+        <defName>AOTC_GamingTelescope_GenI</defName>
+        <label>stellar stargazing entertainment station</label>
+        <description>An interactive holo-computer station containing a variety of space-exploration and observation games with virtual reality support, both modern and ancient, singleplayer and multiplayer. Up to eight people can use the station at once. It doesn't train any skills, but doesn't need to be in an unroofed area like a regular telescope. Up to eight people can use the station at once.\n\nSTATS: Consumes 150 Watts.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Joy/AOTC_GamingTelescope_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4,4)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <Beauty>12</Beauty>
+            <JoyGainFactor>1.5</JoyGainFactor>
+        </statBases>
+        <costList>
+            <AOTC_MaterialTough_GenI>35</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>1</AOTC_Component_GenI>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>150</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
+            <li Class="CompProperties_Flickable" />
+        </comps>
+        <researchPrerequisites>
+            <li>AOTC_GenI_Recreation</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <JoyGiverDef>
+        <defName>AOTC_GamingTelescope_GenI</defName>
+        <giverClass>JoyGiver_WatchBuilding</giverClass>
+        <baseChance>2</baseChance>
+        <thingDefs>
+            <li>AOTC_GamingTelescope_GenI</li>
+        </thingDefs>
+        <jobDef>AOTC_GamingTelescope_GenI</jobDef>
+        <joyKind>Telescope</joyKind>
+    </JoyGiverDef>
+
+    <JobDef>
+        <defName>AOTC_GamingTelescope_GenI</defName>
+        <driverClass>JobDriver_WatchBuilding</driverClass>
+        <reportString>playing space-observation game.</reportString>
+        <joyDuration>4000</joyDuration>
+        <joyMaxParticipants>8</joyMaxParticipants>
+        <joyKind>Telescope</joyKind>
+        <taleOnCompletion>PlayedGame</taleOnCompletion>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+</Defs>

@@ -1,0 +1,266 @@
+<Defs>
+    <ResearchTabDef>
+        <defName>AOTC</defName>
+        <label>Ambition of the Cosmic</label>
+    </ResearchTabDef>
+
+    <!-- BASE RESEARCHES -->
+
+    <ResearchProjectDef Name="AOTC_ResearchBase" Abstract="True">
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <tab>AOTC</tab>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase" Name="AOTC_ResearchBase_GenI" Abstract="True">
+        <requiredResearchFacilities>
+            <li>AOTC_Linkable_ResearchUnlockerGenI</li>
+        </requiredResearchFacilities>
+		<techLevel>Ultra</techLevel>
+        <tab>AOTC</tab>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase" Name="AOTC_ResearchBase_GenII" Abstract="True">
+        <!-- <<requiredResearchFacilities>
+            li>AOTC_Linkable_ResearchUnlockerGenII</li>
+        </requiredResearchFacilities> -->
+		<techLevel>Archotech</techLevel>
+        <tab>AOTC</tab>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase" Name="AOTC_ResearchBase_GenIII" Abstract="True">
+        <!-- <requiredResearchFacilities>
+            <li>AOTC_Linkable_ResearchUnlockerGenIII</li>
+        </requiredResearchFacilities> -->
+		<techLevel>Archotech</techLevel>
+        <tab>AOTC</tab>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase" Name="AOTC_ResearchBase_GenIV" Abstract="True">
+        <!-- <requiredResearchFacilities>
+            <li>AOTC_Linkable_ResearchUnlockerGenIV</li>
+        </requiredResearchFacilities> -->
+		<techLevel>Archotech</techLevel>
+        <tab>AOTC</tab>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase" Name="AOTC_ResearchBase_GenV" Abstract="True">
+        <!-- <requiredResearchFacilities>
+            <li>AOTC_Linkable_ResearchUnlockerGenV</li>
+        </requiredResearchFacilities> -->
+		<techLevel>Archotech</techLevel>
+        <tab>AOTC</tab>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase" Name="AOTC_ResearchBase_GenVI" Abstract="True">
+        <!-- <requiredResearchFacilities>
+            <li>AOTC_Linkable_ResearchUnlockerGenVI</li>
+        </requiredResearchFacilities> -->
+		<techLevel>Archotech</techLevel>
+        <tab>AOTC</tab>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase" Name="AOTC_ResearchBase_GenVII" Abstract="True">
+        <!-- <requiredResearchFacilities>
+            <li>AOTC_Linkable_ResearchUnlockerGenVII</li>
+        </requiredResearchFacilities> -->
+		<techLevel>Archotech</techLevel>
+        <tab>AOTC</tab>
+    </ResearchProjectDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_Unlocker</defName>
+        <label>proto-cosmic analysis</label>
+        <description>Unlock the ability to begin experimenting with enigmatic Cosmic Matter, and learn how to use it.\n\nAll the secrets of Cosmic Matter originate from the Cosmic Precursors, an extinct alien species that achieved a level of technological advancement unfathomable to us and everything we know, including the Archotechs.</description>
+        <baseCost>10000</baseCost>
+		<prerequisites>
+			<li>ShipComputerCore</li>
+			<li>ShipEngine</li>
+			<li>ShipReactor</li>
+			<li>ShipCryptosleep</li>
+			<li>ShipSensorCluster</li>
+		</prerequisites>
+        <researchViewX>0</researchViewX>
+        <researchViewY>2.5</researchViewY>
+    </ResearchProjectDef>
+
+    <!-- Considering mandatory linkables, multiply desired baseCost past here by 1.5x -->
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_MaterialProduction</defName>
+        <label>starsteel production</label>
+        <description>Produce Starsteel, and the buildings and ingredient items required to produce it.</description>
+        <baseCost>22500</baseCost> <!-- effective 15000 -->
+		<prerequisites>
+			<li>AOTC_GenI_Unlocker</li>
+		</prerequisites>
+        <researchViewX>1</researchViewX>
+        <researchViewY>2.5</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_CraftingMainLinkable</defName>
+        <label>improved stellar forge tools</label>
+        <description>Build the stellar forge tool cabinet, which contains tools made of starsteel that is able to handle Cosmic Matter better, allowing for more efficient (and therefore effectively faster) work with Cosmic Matter.</description>
+        <baseCost>7500</baseCost> <!-- effective 5000 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>1</researchViewX>
+        <researchViewY>3.25</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_PowerFueled</defName>
+        <label>advanced fission power</label>
+        <description>Build the immobile and portable versions of the advanced fission reactor, which consumes simple unenriched uranium to produce power.</description>
+        <baseCost>5250</baseCost> <!-- effective 3500 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>2</researchViewX>
+        <researchViewY>0</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_PowerFree</defName>
+        <label>perpetual motion power</label>
+        <description>Build the perpetual turbine motor, which generates a small amout of energy for free.</description>
+        <baseCost>5250</baseCost> <!-- effective 3500 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>2</researchViewX>
+        <researchViewY>0.75</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_Battery</defName>
+        <label>efficient power storage</label>
+        <description>Build the stellar battery; a perfected battery that stores 100% of the energy put into it.</description>
+        <baseCost>5250</baseCost> <!-- effective 3500 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>2</researchViewX>
+        <researchViewY>1.5</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_Hydroponics</defName>
+        <label>stellar hydroponics</label>
+        <description>Build the stellar hydroponics basin, an advanced hydroponics basin with superior soil fertility.</description>
+        <baseCost>5250</baseCost> <!-- effective 3500 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>2</researchViewX>
+        <researchViewY>2.25</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_Recreation</defName>
+        <label>recreational training</label>
+        <description>Build skill entertainment stations; recreational computers that contain games that train a certain skill.</description>
+        <baseCost>7500</baseCost> <!-- effective 5000 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>2</researchViewX>
+        <researchViewY>3</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_MedicineAndDrugs</defName>
+        <label>mechanite medicinals</label>
+        <description>Produce powerful specialized mechanite-based drugs out of starsteel.</description>
+        <baseCost>7500</baseCost> <!-- effective 5000 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>2</researchViewX>
+        <researchViewY>3.75</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_Bionics</defName>
+        <label>starsteel bionics</label>
+        <description>Produce bionics and implants made out of pure starsteel which have identical performance to limbs made by archotechs.</description>
+        <baseCost>5250</baseCost> <!-- effective 3500 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>2</researchViewX>
+        <researchViewY>4.5</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_Armor</defName>
+        <label>starguard armor</label>
+        <description>Produce starguard armor; armor used by super-infantry.</description>
+        <baseCost>7500</baseCost> <!-- effective 5000 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>2</researchViewX>
+        <researchViewY>5.25</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_WeaponsRanged</defName>
+        <label>atmospheric plasma weaponization</label>
+        <description>Produce weaponry that fire dense, superheated packets of atmosphere converted into a plasma.</description>
+        <baseCost>7500</baseCost> <!-- effective 5000 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>3</researchViewX>
+        <researchViewY>0</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_WeaponsMelee</defName>
+        <label>starsteel-based melee weapons</label>
+        <description>Produce melee weapons that make full use of starsteel's multi-function properties.</description>
+        <baseCost>7500</baseCost> <!-- effective 5000 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>3</researchViewX>
+        <researchViewY>0.75</researchViewY>
+    </ResearchProjectDef>
+
+    <!-- Infinite Research -->
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_EndOfTechTree</defName>
+        <label>The Technological Ceiling</label>
+        <description>We can go no further. The secrets of the Cosmic are beyond our reach.</description>
+		<baseCost>Infinity</baseCost>
+		<prerequisites>
+			<li>AOTC_GenI_PowerFueled</li>
+			<li>AOTC_GenI_PowerFree</li>
+			<li>AOTC_GenI_Battery</li>
+			<li>AOTC_GenI_Hydroponics</li>
+			<li>AOTC_GenI_Recreation</li>
+			<li>AOTC_GenI_MedicineAndDrugs</li>
+			<li>AOTC_GenI_Bionics</li>
+			<li>AOTC_GenI_Armor</li>
+			<li>AOTC_GenI_WeaponsRanged</li>
+			<li>AOTC_GenI_WeaponsMelee</li>
+		</prerequisites>
+        <researchViewX>4</researchViewX>
+        <researchViewY>2.5</researchViewY>
+		<modExtensions>
+			<li Class="InfiniteResearch.ResearchExtension_Infinite" />
+		</modExtensions>
+    </ResearchProjectDef>
+
+    
+    <!-- [==========] GENERATION 2 "COSMISTELLAR" [==========] -->
+
+</Defs>

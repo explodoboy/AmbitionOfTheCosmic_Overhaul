@@ -1,0 +1,123 @@
+<Defs>
+
+    <ThingDef ParentName="AOTC_DrugBase" Name="AOTC_DrugImmuneBase" Abstract="True">
+        <ingestible>
+            <drugCategory>Medical</drugCategory>
+            <foodType>Processed, Fluid</foodType>
+            <baseIngestTicks>120</baseIngestTicks>
+            <ingestSound>Ingest_Inject</ingestSound>
+            <ingestHoldOffsetStanding>
+                <northDefault>
+                    <offset>(0.18,0,0)</offset>
+                </northDefault>
+            </ingestHoldOffsetStanding>
+            <ingestCommandString>Inject {0}</ingestCommandString>
+            <ingestReportString>Injecting {0}.</ingestReportString>
+            <useEatingSpeedStat>false</useEatingSpeedStat>
+            <chairSearchRadius>0</chairSearchRadius>
+        </ingestible>
+    </ThingDef>
+
+    <HediffDef Name="AOTC_Drug_Immune_HediffBase" Abstract="True">
+        <hediffClass>HediffWithComps</hediffClass>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                    <severityPerDay>-0.19</severityPerDay>
+                    <showHoursToRecover>true</showHoursToRecover>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_DrugImmuneBase">
+        <defName>AOTC_DrugImmune_GenI</defName>
+        <label>AEGIS-I</label>
+        <description>An injector containing mechanites that repair the body, accelerating healing, vastly boosting the immune system, alongside instantly curing several diseases and conditions that the immune system can't deal with by itself. AEGIS-I has no risk of addiction or overdose.\n\nSTATS:\nRemoves need of rest\nDose gives 5 days of effect\nDuration does not stack</description>
+        <descriptionHyperlinks>
+            <HediffDef>AOTC_DrugImmune_GenI</HediffDef>
+        </descriptionHyperlinks>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Drug/AOTC_DrugImmune_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>25</MarketValue>
+        </statBases>
+        <ingestible>
+            <baseIngestTicks>120</baseIngestTicks>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>AOTC_DrugImmune_GenI</hediffDef>
+                    <severity>1</severity>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+        <researchPrerequisites>
+            <li>AOTC_GenI_MedicineAndDrugs</li>
+        </researchPrerequisites>
+        <techLevel>Ultra</techLevel> <!-- Assuming highest just in case. -->
+        <comps>
+            <li Class="CompProperties_Drug">
+                <addictiveness>0</addictiveness>
+                <existingAddictionSeverityOffset>0</existingAddictionSeverityOffset>
+                <needLevelOffset>0</needLevelOffset>
+                <isCombatEnhancingDrug>false</isCombatEnhancingDrug>
+                <listOrder>200</listOrder>
+                <overdoseSeverityOffset>0</overdoseSeverityOffset>
+                <largeOverdoseChance>0</largeOverdoseChance>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <HediffDef ParentName="AOTC_Drug_Immune_HediffBase">
+        <defName>AOTC_DrugImmune_GenI</defName>
+        <label>high on AEGIS-I</label>
+        <labelNoun>a AEGIS-I high</labelNoun>
+        <description>Charged AEGIS-I mechanites in the bloodstream. The mechanites are assisting the immune system, and clearing out diseases that it can't eliminate on its own, alongside preventing several other diseases. The mechanites will eventually lose charge and will eventually be filtered out of the body harmlessly.</description>
+        <defaultLabelColor>(255,60,0)</defaultLabelColor>
+        <maxSeverity>1</maxSeverity>
+        <stages>
+            <li>
+                <makeImmuneTo>
+                    <li>GutWorms</li>
+                    <li>FoodPoisoning</li>
+                    <li>MuscleParasites</li>
+                    <li>FibrousMechanites</li>
+                    <li>SensoryMechanites</li>
+                    <li>WoundInfection</li>
+                    <li>Flu</li>
+                    <li>Plague</li>
+                    <li>Malaria</li>
+                    <li>SleepingSickness</li>
+                    <li>LungRot</li>
+                </makeImmuneTo>
+                <statOffsets>
+                    <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="IHaveTheCure.HediffCompProperties_CuresHediffs"> <!-- TODO: Move this over to the Gen2 version when I make it. -->
+               <hediffsToCure> <!-- Remove AEGIS hediffs for previous generation, to prevent stacking. -->
+                    <!--li>AOTC_DrugImmune_GenII</li>
+                    <li>AOTC_DrugImmune_GenIII</li>
+                    <li>AOTC_DrugImmune_GenIV</li>
+                    <li>AOTC_Drug_Immune_GenV</li>
+                    <li>AOTC_Drug_Immune_GenVI</li>
+                    <li>AOTC_Drug_Immune_GenVII</li--> <!-- Disabling for drug defs that don't yet exist. -->
+
+                    <li>GutWorms</li>
+                    <li>FoodPoisoning</li>
+                    <li>MuscleParasites</li>
+                    <li>FibrousMechanites</li>
+                    <li>SensoryMechanites</li>
+                    <li>LungRot</li>
+               </hediffsToCure>
+           </li>
+        </comps>
+    </HediffDef>
+    
+</Defs>

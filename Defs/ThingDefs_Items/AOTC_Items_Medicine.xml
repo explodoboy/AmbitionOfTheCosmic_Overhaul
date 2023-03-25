@@ -1,0 +1,29 @@
+<Defs>
+
+    <ThingDef ParentName="MedicineBase">
+      <defName>AOTC_Medicine_GenI</defName>
+      <label>stellar medicine</label>
+      <description>A kit of ultra-tech medical supplies made of starsteel. It contains various types of mechanites and starsteel tools, and is equivalent to glitterworld medicine in effectiveness.</description>
+      <possessionCount>2</possessionCount>
+      <graphicData>
+        <texPath>BaseAOTC/Things/Item/Medicine/AOTC_Medicine_GenI</texPath>
+        <graphicClass>Graphic_StackCount</graphicClass>
+        <drawSize>0.85</drawSize>
+      </graphicData>
+      <techLevel>Ultra</techLevel>
+      <statBases>
+        <MarketValue>50</MarketValue>
+        <Mass>0.50</Mass>
+        <Flammability>0</Flammability>
+        <MedicalPotency>1.60</MedicalPotency>
+        <MedicalQualityMax>1.30</MedicalQualityMax>
+        <DeteriorationRate>0</DeteriorationRate>
+      </statBases>
+      <tradeTags>
+            <li>ExoticMisc</li>
+      </tradeTags>
+      <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+      <allowedArchonexusCount>5</allowedArchonexusCount>
+    </ThingDef>
+
+</Defs>

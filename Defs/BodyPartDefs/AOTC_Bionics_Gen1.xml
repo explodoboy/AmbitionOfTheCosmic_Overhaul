@@ -1,0 +1,705 @@
+<Defs>
+    <!--
+        GEN1: <defaultLabelColor>(255,60,0)</defaultLabelColor>     (FF3C00)
+
+        GEN2: <defaultLabelColor>(255,145,0)</defaultLabelColor>    (FF9100)
+
+        GEN3: <defaultLabelColor>(255,255,0)</defaultLabelColor>    (FFFF00)
+
+        GEN4: <defaultLabelColor>(150,255,0)</defaultLabelColor>    (96FF00)
+
+        GEN5: <defaultLabelColor>(0,255,255)</defaultLabelColor>    (00FFFF)
+
+        GEN6: <defaultLabelColor>(0,60,255)</defaultLabelColor>     (5A00FF)
+
+        GEN7: <defaultLabelColor>(255,255,255)</defaultLabelColor>  (FFFFFF)
+    -->
+
+    <!-- Base item -->
+    <ThingDef Name="AOTC_BionicItemBase_GenI" ParentName="BodyPartBionicBase" Abstract="True">
+        <techLevel>Ultra</techLevel>
+        <graphicData>
+            <texPath>Things/Item/Health/HealthItem</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.80</drawSize>
+            <color>(255,60,0)</color>
+        </graphicData>
+        <tradeTags>
+            <li>Bionic</li> <!-- Putting this here again as a reminder to have this affected by AOTC ModOptions. -->
+        </tradeTags>
+        <techHediffsTags>
+            <li>Advanced</li> <!-- Putting this here again as a reminder to have this affected by AOTC ModOptions. -->
+        </techHediffsTags>
+        <statBases>
+            <WorkToMake>6000</WorkToMake> <!--- Due to the sheer number of AOTC bionics, I'm reducing work-to-make by a lot. -->
+            <MaxHitPoints>150</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>4</Beauty>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>1</Mass>
+        </statBases>
+        <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
+            <researchPrerequisite>AOTC_GenI_Bionics</researchPrerequisite>
+            <recipeUsers>
+                <li>AOTC_CraftingBionics_GenI</li>
+            </recipeUsers>
+        </recipeMaker>
+        <costList>
+            <AOTC_MaterialTough_GenI>15</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>4</AOTC_Component_GenI>
+        </costList>
+    </ThingDef>
+
+    <!-- Bodypart Hediff -->
+    <HediffDef Name="AOTC_BionicBodypartHediff_GenI" ParentName="AddedBodyPartBase" Abstract="True">
+		<defaultLabelColor>(255,60,0)</defaultLabelColor>
+        <woundAnchorRange>0</woundAnchorRange>
+        <displayWound>true</displayWound>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1.5</partEfficiency>
+			<betterThanNatural>true</betterThanNatural>
+		</addedPartProps>
+        <comps>
+            <li MayRequire="V1024.EBFramework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
+                <scaleAdjustment>1</scaleAdjustment>
+            </li>
+        </comps>
+	</HediffDef>
+
+    <!-- Implant Hediff -->
+	<HediffDef Name="AOTC_BionicImplantHediff_GenI" ParentName="ImplantHediffBase" Abstract="True">
+		<defaultLabelColor>(255,60,0)</defaultLabelColor>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1</partEfficiency>
+			<betterThanNatural>true</betterThanNatural>
+		</addedPartProps>
+        <comps>
+            <li MayRequire="V1024.EBFramework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
+                <scaleAdjustment>1</scaleAdjustment>
+            </li>
+        </comps>
+	</HediffDef>
+
+
+    <!-- REPLACEMENT PARTS -->
+
+    <!-- Eye -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicEye_GenI</defName>
+        <label>stellar eye</label>
+        <description>An installed stellar eye.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicEye_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicEye_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicEye_GenI</defName>
+        <label>stellar eye</label>
+        <description>An artificial eye made of pure Starsteel, capable of percieving every type of electromagnetic radiation, from radio waves to gamma rays. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicEye_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicEye_GenI</defName>
+        <label>install stellar eye</label>
+        <description>Install a stellar eye.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicEye_GenI</ThingDef>
+			<HediffDef>AOTC_BionicEye_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar eye.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicEye_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicEye_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Eye</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicEye_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Ear -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicEar_GenI</defName>
+        <label>stellar ear</label>
+        <description>An installed stellar ear.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicEar_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicEar_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicEar_GenI</defName>
+        <label>stellar ear</label>
+        <description>An artificial ear made of pure Starsteel. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicEar_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicEar_GenI</defName>
+        <label>install stellar ear</label>
+        <description>Install a stellar ear.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicEar_GenI</ThingDef>
+			<HediffDef>AOTC_BionicEar_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar ear.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicEar_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicEar_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Ear</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicEar_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Nose -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicNose_GenI</defName>
+        <label>stellar nose</label>
+        <description>An installed stellar nose.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicNose_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicNose_GenI</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <statOffsets>
+                    <CookSpeed>5</CookSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicNose_GenI</defName>
+        <label>stellar nose</label>
+        <description>An artificial nose made of pure Starsteel. It has functionality similar to the gastro-analyzer; it enhances the ability of smell, especially in relation to food, allowing for vastly increased effectiveness in food preparation and cooking. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicNose_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicNose_GenI</defName>
+        <label>install stellar nose</label>
+        <description>Install a stellar nose.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicNose_GenI</ThingDef>
+			<HediffDef>AOTC_BionicNose_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar nose.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicNose_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicNose_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Nose</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicNose_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Jaw -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicJaw_GenI</defName>
+        <label>stellar jaw</label>
+        <description>An installed stellar jaw.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicJaw_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicJaw_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicJaw_GenI</defName>
+        <label>stellar jaw</label>
+        <description>An artificial jaw made of pure Starsteel. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicJaw_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicJaw_GenI</defName>
+        <label>install stellar jaw</label>
+        <description>Install a stellar jaw.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicJaw_GenI</ThingDef>
+			<HediffDef>AOTC_BionicJaw_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar jaw.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicJaw_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicJaw_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Jaw</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicJaw_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Tongue -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicTongue_GenI</defName>
+        <label>stellar tongue</label>
+        <description>An installed stellar tongue.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicTongue_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicTongue_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicTongue_GenI</defName>
+        <label>stellar tongue</label>
+        <description>An artificial tongue made of pure Starsteel. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicTongue_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicTongue_GenI</defName>
+        <label>install stellar tongue</label>
+        <description>Install a stellar tongue.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicTongue_GenI</ThingDef>
+			<HediffDef>AOTC_BionicTongue_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar tongue.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicTongue_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicTongue_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Tongue</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicTongue_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Arm -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicArm_GenI</defName>
+        <label>stellar arm</label>
+        <description>An installed stellar arm.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicArm_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicArm_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicArm_GenI</defName>
+        <label>stellar arm</label>
+        <description>An artificial arm made of pure Starsteel. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicArm_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicArm_GenI</defName>
+        <label>install stellar arm</label>
+        <description>Install a stellar arm.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicArm_GenI</ThingDef>
+			<HediffDef>AOTC_BionicArm_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar arm.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicArm_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicArm_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Arm</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicArm_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Leg -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicLeg_GenI</defName>
+        <label>stellar leg</label>
+        <description>An installed stellar leg.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicLeg_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicLeg_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicLeg_GenI</defName>
+        <label>stellar leg</label>
+        <description>An artificial leg made of pure Starsteel. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicLeg_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicLeg_GenI</defName>
+        <label>install stellar leg</label>
+        <description>Install a stellar leg.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicLeg_GenI</ThingDef>
+			<HediffDef>AOTC_BionicLeg_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar leg.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicLeg_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicLeg_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Leg</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicLeg_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Spine -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicSpine_GenI</defName>
+        <label>stellar spine</label>
+        <description>An installed stellar spine.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicSpine_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicSpine_GenI</spawnThingOnRemoved>
+		<addedPartProps><partEfficiency>1</partEfficiency></addedPartProps> <!-- To avoid having to totally rebalance bionics and make a lot of clutter, I'm just making this have no effect on bodypart efficiency. -->
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicSpine_GenI</defName>
+        <label>stellar spine</label>
+        <description>An artificial spine made of pure Starsteel.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicSpine_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicSpine_GenI</defName>
+        <label>install stellar spine</label>
+        <description>Install a stellar spine.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicSpine_GenI</ThingDef>
+			<HediffDef>AOTC_BionicSpine_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar spine.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicSpine_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicSpine_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Spine</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicSpine_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Heart -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicHeart_GenI</defName>
+        <label>stellar heart</label>
+        <description>An installed stellar heart.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicHeart_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicHeart_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicHeart_GenI</defName>
+        <label>stellar heart</label>
+        <description>An artificial heart made of pure Starsteel. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicHeart_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicHeart_GenI</defName>
+        <label>install stellar heart</label>
+        <description>Install a stellar heart.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicHeart_GenI</ThingDef>
+			<HediffDef>AOTC_BionicHeart_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar heart.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicHeart_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicHeart_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Heart</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicHeart_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Lung -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicLung_GenI</defName>
+        <label>stellar lung</label>
+        <description>An installed stellar lung.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicLung_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicLung_GenI</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <statOffsets>
+                    <ToxicEnvironmentResistance>0.75</ToxicEnvironmentResistance>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicLung_GenI</defName>
+        <label>stellar lung</label>
+        <description>An artificial lung made of pure Starsteel. It filters inhaled air, preventing atmospheric toxins from entering the body. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.\n\nNote that the stellar lung does not prevent the irritating effects of tox gas.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicLung_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicLung_GenI</defName>
+        <label>install stellar lung</label>
+        <description>Install a stellar lung.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicLung_GenI</ThingDef>
+			<HediffDef>AOTC_BionicLung_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar lung.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicLung_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicLung_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Lung</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicLung_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Kidney -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicKidney_GenI</defName>
+        <label>stellar kidney</label>
+        <description>An installed stellar kidney.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicKidney_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicKidney_GenI</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <statOffsets>
+                    <ToxicResistance>0.75</ToxicResistance>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicKidney_GenI</defName>
+        <label>stellar kidney</label>
+        <description>An artificial kidney made of pure Starsteel with an advanced filter capable of foltering out environmental toxins, venoms, and injected poisons. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicKidney_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicKidney_GenI</defName>
+        <label>install stellar kidney</label>
+        <description>Install a stellar kidney.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicKidney_GenI</ThingDef>
+			<HediffDef>AOTC_BionicKidney_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar kidney.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicKidney_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicKidney_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Kidney</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicKidney_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Liver -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicLiver_GenI</defName>
+        <label>stellar liver</label>
+        <description>An installed stellar liver.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicLiver_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicLiver_GenI</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <statFactors>
+                    <InjuryHealingFactor>2</InjuryHealingFactor>
+                </statFactors>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicLiver_GenI</defName>
+        <label>stellar liver</label>
+        <description>An artificial liver made of pure Starsteel. It creates and maintains mechanites that perform repair tasks around the body, increasing healing rate. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicLiver_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicLiver_GenI</defName>
+        <label>install stellar liver</label>
+        <description>Install a stellar liver.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicLiver_GenI</ThingDef>
+			<HediffDef>AOTC_BionicLiver_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar liver.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicLiver_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicLiver_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Liver</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicLiver_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Stomach -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicStomach_GenI</defName>
+        <label>stellar stomach</label>
+        <description>An installed stellar stomach.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicStomach_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicStomach_GenI</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <hungerRateFactor>0.5</hungerRateFactor>
+                <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicStomach_GenI</defName>
+        <label>stellar stomach</label>
+        <description>An artificial stomach made of pure Starsteel. It is both efficient and processing nutrients and storing them, effectively reducing the rate hunger increases. The method of processing nutrients renders any food poisoning-causing pathogens to be rendered inert or destroyed, effectively removing the risk of food poisoning. Its performance is equal to that of bionics and implants made by archotechs. It does not remotely share the fleshlike appearance of archotech-made cybernetics.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicStomach_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicStomach_GenI</defName>
+        <label>install stellar stomach</label>
+        <description>Install a stellar stomach.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicStomach_GenI</ThingDef>
+			<HediffDef>AOTC_BionicStomach_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar stomach.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicStomach_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicStomach_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Stomach</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicStomach_GenI</addsHediff>
+    </RecipeDef>
+
+    
+    <!-- IMPLANTS -->
+    
+    <!-- Brain -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicBrain_GenI</defName>
+        <label>stellar neural enchanter</label>
+        <description>An installed stellar neural enchanter.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicBrain_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicBrain_GenI</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <statFactors>
+                    <PsychicEntropyMax MayRequire="Ludeon.RimWorld.Royalty">1.35</PsychicEntropyMax>
+                    <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">1.35</PsychicEntropyRecoveryRate>
+                    <MechBandwidth MayRequire="Ludeon.Rimworld.Biotech">1.5</MechBandwidth>
+                    <MechControlGroups MayRequire="Ludeon.Rimworld.Biotech">1.5</MechControlGroups>
+                    <GlobalLearningFactor>1.5</GlobalLearningFactor>
+                    <RestFallRateFactor>0.75</RestFallRateFactor>
+                </statFactors>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicBrain_GenI</defName>
+        <label>stellar neural enchanter</label>
+        <description>An advanced brain implant that infuses the brain with Cosmic Matter, enhancing its capabilities and improving memory retention--and thus slows down skill loss. It also enhances psychic abilities and mechanoid control.\n\nNeural enchanters cure and prevent various mental conditions.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicBrain_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicBrain_GenI</defName>
+        <label>install stellar neural enchanter</label>
+        <description>Install a stellar neural enchanter.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicBrain_GenI</ThingDef>
+			<HediffDef>AOTC_BionicBrain_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar neural enchanter.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicBrain_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicBrain_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Brain</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicBrain_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Head -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicHead_GenI</defName>
+        <label>stellar head armor</label>
+        <description>Installed stellar head armor.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicHead_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicHead_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicHead_GenI</defName>
+        <label>stellar head armor</label>
+        <description>Surgically-implanted armor for the head made of Starsteel. It improves durability without restricting movement.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicHead_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicHead_GenI</defName>
+        <label>install stellar head armor</label>
+        <description>Install stellar head armor.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicHead_GenI</ThingDef>
+			<HediffDef>AOTC_BionicHead_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar head armor.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicHead_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicHead_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Head</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicHead_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Neck -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicNeck_GenI</defName>
+        <label>stellar neck armor</label>
+        <description>Installed stellar neck armor.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicNeck_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicNeck_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicNeck_GenI</defName>
+        <label>stellar neck armor</label>
+        <description>Surgically-implanted armor for the neck made of Starsteel. It improves durability without restricting movement.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicNeck_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicNeck_GenI</defName>
+        <label>install stellar neck armor</label>
+        <description>Install stellar neck armor.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicNeck_GenI</ThingDef>
+			<HediffDef>AOTC_BionicNeck_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar neck armor.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicNeck_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicNeck_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Neck</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicNeck_GenI</addsHediff>
+    </RecipeDef>
+
+
+    <!-- Torso -->
+    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+        <defName>AOTC_BionicTorso_GenI</defName>
+        <label>stellar torso armor</label>
+        <description>Installed stellar torso armor.</description>
+		<descriptionHyperlinks><ThingDef>AOTC_BionicTorso_GenI</ThingDef></descriptionHyperlinks>
+		<spawnThingOnRemoved>AOTC_BionicTorso_GenI</spawnThingOnRemoved>
+    </HediffDef>
+
+    <ThingDef ParentName="AOTC_BionicItemBase_GenI">
+        <defName>AOTC_BionicTorso_GenI</defName>
+        <label>stellar torso armor</label>
+        <description>Surgically-implanted armor for the torso made of Starsteel. It improves durability without restricting movement.</description>
+		<descriptionHyperlinks><RecipeDef>AOTC_InstallBodypart_BionicTorso_GenI</RecipeDef></descriptionHyperlinks>
+		<thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>AOTC_InstallBodypart_BionicTorso_GenI</defName>
+        <label>install stellar torso armor</label>
+        <description>Install stellar torso armor.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicTorso_GenI</ThingDef>
+			<HediffDef>AOTC_BionicTorso_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing stellar torso armor.</jobString>
+		<ingredients><li><filter><thingDefs><li>AOTC_BionicTorso_GenI</li></thingDefs></filter><count>1</count></li></ingredients>
+		<fixedIngredientFilter><thingDefs><li>AOTC_BionicTorso_GenI</li></thingDefs></fixedIngredientFilter>
+		<appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
+		<addsHediff>AOTC_BionicTorso_GenI</addsHediff>
+    </RecipeDef>
+    
+</Defs>

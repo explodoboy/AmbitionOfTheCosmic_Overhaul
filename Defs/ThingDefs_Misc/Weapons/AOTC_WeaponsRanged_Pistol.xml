@@ -1,0 +1,97 @@
+<Defs>
+
+    <ThingDef ParentName="BaseMakeableGun" Name="AOTC_PistolBase" Abstract="True">
+        <soundInteract>Interact_ChargeRifle</soundInteract>
+        <statBases>
+            <Mass>1.25</Mass>
+            <!--WorkToMake>38100</WorkToMake--> <!-- Use this as reference for recipes in crafting station. -->
+        </statBases>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <weaponTags>
+            <li>SpacerGun</li>
+        </weaponTags>
+        <tradeTags>
+            <li>WeaponRanged</li>
+        </tradeTags>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+            <li>RewardStandardMidFreq</li>
+        </thingSetMakerTags>
+    </ThingDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_PistolBase">
+        <defName>AOTC_Pistol_GenI</defName>
+        <label>stellar pistol</label>
+        <description>A pistol that launches condensed atmosphere heated into a plasma, held tightly together by a magnetic field. The projectile launched by the stellar pistol has remarkable penetrating power, and is cheap enough to see low levels of mass-production from the most advanced societies.</description>
+        <techLevel>Ultra</techLevel>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Equipment/WeaponRanged/AOTC_Pistol_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <WorkToMake>20000</WorkToMake>
+            <AccuracyTouch>0.85</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.45</AccuracyMedium>
+            <AccuracyLong>0.35</AccuracyLong>
+            <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>AOTC_PistolBullet_GenI</defaultProjectile>
+                <warmupTime>0.3</warmupTime>
+                <range>27.9</range>
+                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+            <label>barrel</label>
+            <capacities>
+                <li>Blunt</li>
+                <li>Poke</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <recipeMaker>
+            <recipeUsers Inherit="False">
+                <li>AOTC_CraftingMain_GenI</li>
+            </recipeUsers>
+            <researchPrerequisite>AOTC_GenI_WeaponsRanged</researchPrerequisite>
+        </recipeMaker>
+        <costList>
+            <AOTC_MaterialTough_GenI>25</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>1</AOTC_Component_GenI>
+        </costList>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>AOTC_PistolBullet_GenI</defName>
+        <label>stellar pistol projectile</label>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Projectile/AOTC_PistolBullet_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>12</damageAmountBase>
+            <armorPenetrationBase>0.5</armorPenetrationBase>
+            <speed>80</speed>
+        </projectile>
+    </ThingDef>
+
+</Defs>

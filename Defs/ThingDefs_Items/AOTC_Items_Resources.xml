@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- 
+    QUEST REWARD TAGS:
+        RewardStandardHighFreq - Weight 5
+        RewardStandardMidFreq - Weight 2.5
+        RewardStandardLowFreq - Weight 1
+
+        RewardStandardQualitySuper - Weight 1.5 (force high quality)
+        RewardStandardCore - Weight 3 (meant for vanilla items)
+    -->
+
+    <!-- START BASE RESOURCES -->
+
+    <ThingDef ParentName="ResourceBase" Name="AOTC_ResourceBase" Abstract="True">
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Metal_Drop</soundDrop>
+        <useHitPoints>false</useHitPoints>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <burnableByRecipe>false</burnableByRecipe>
+        <smeltable>true</smeltable>
+        <thingCategories><li>ResourcesRaw</li></thingCategories>
+        <stuffProps>
+            <statFactors>
+                <Flammability>0.0</Flammability>
+            </statFactors>
+            <categories>
+                <li>Metallic</li>
+                <li>Fabric</li>
+                <li>Leathery</li>
+            </categories>
+            <appearance>Metal</appearance>
+            <constructEffect>ConstructMetal</constructEffect>
+            <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+            <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+            <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+        </stuffProps>
+        <tradeTags>
+            <li>ExoticMisc</li>
+        </tradeTags>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <allowedArchonexusCount>80</allowedArchonexusCount>
+    </ThingDef>
+
+    <!-- MaxHP: 50 * (CurrentGeneration * 2), eventually becomes indestructable at a high generation. -->
+    <ThingDef ParentName="ResourceBase" Name="AOTC_ResourceIngredientBase" Abstract="True">
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <stackLimit>5</stackLimit>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <intricate>true</intricate>
+        <thingCategories><li>Manufactured</li></thingCategories>
+        <statBases>
+            <Mass>10</Mass>
+            <Flammability>0</Flammability>
+            <DeteriorationRate>0</DeteriorationRate>
+        </statBases>
+        <tradeTags>
+            <li>ExoticMisc</li>
+        </tradeTags>
+        <allowedArchonexusCount>10</allowedArchonexusCount>
+    </ThingDef>
+
+    <!-- MaxHP: 70 * stuffProps/statFactors/MaxHitPoints (eventually becomes indestructable at a high generation) -->
+    <ThingDef ParentName="ResourceBase" Name="AOTC_ComponentBase" Abstract="True">
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <stackLimit>50</stackLimit>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <intricate>true</intricate>
+        <thingCategories><li>Manufactured</li></thingCategories>
+        <statBases>
+            <Mass>0.6</Mass>
+            <Flammability>0</Flammability>
+            <DeteriorationRate>0</DeteriorationRate>
+        </statBases>
+        <allowedArchonexusCount>10</allowedArchonexusCount>
+    </ThingDef>
+
+    <!-- END BASE RESOURCES -->
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+
+    <ThingDef ParentName="AOTC_ResourceBase">
+        <defName>AOTC_MaterialTough_GenI</defName>
+        <label>starsteel</label>
+        <description>Ultra-advanced, and exceptionally versatile metal with antimicrobial, insulating, and psychic-enhancing properties. Starsteel can be used for any purpose, from warship plating to clothing. Starsteel is infused with the enigmatic Cosmic Matter, which provides the metal all of its near-magical properties. Starsteel's molecular structure must be precisely engineered, as imperfections drastically reduce how much Cosmic Matter the material can contain.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Resource/AOTC_MaterialTough_GenI</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>40</MarketValue>
+            <Mass>0.46</Mass>
+            <StuffPower_Armor_Sharp>1.4</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.4</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>1</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>40</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>40</StuffPower_Insulation_Heat>
+            <SharpDamageMultiplier>1.4</SharpDamageMultiplier>
+            <BluntDamageMultiplier>1.4</BluntDamageMultiplier>
+        </statBases>
+        <stuffProps>
+            <commonality>0.01</commonality>
+            <statFactors>
+                <MaxHitPoints>3.5</MaxHitPoints>
+                <Beauty>2</Beauty>
+                <Flammability>0</Flammability>
+                <WorkToMake>1.5</WorkToMake>
+                <WorkToBuild>1.5</WorkToBuild>
+                <MeleeWeapon_CooldownMultiplier>1</MeleeWeapon_CooldownMultiplier>
+            </statFactors>
+        </stuffProps>
+        <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <ThingDef ParentName="AOTC_ResourceBase">
+        <defName>AOTC_MaterialToughBad_GenI</defName>
+        <label>flawed starsteel</label>
+        <description>Ultra-advanced, and versatile metal with antimicrobial, insulating, and psychic-enhancing properties. Starsteel can be used for any purpose, from warship plating to clothing. Starsteel is infused with the enigmatic Cosmic Matter, which provides the metal all of its near-magical properties. Starsteel's molecular structure must be precisely engineered, as imperfections drastically reduce how much Cosmic Matter the material can contain.\n\nThis Starsteel has an imperfection in its structure which has drastically reduced how much Cosmic Matter can be stored inside of it. With sufficient knowledge of crafting starsteel and some spare proto-cosmic charge, it can be made back into normal starsteel.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Resource/AOTC_MaterialToughBad_GenI</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>20</MarketValue>
+            <Mass>0.46</Mass>
+            <StuffPower_Armor_Sharp>1.35</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.1</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>1</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>15</StuffPower_Insulation_Heat>
+            <SharpDamageMultiplier>1.2</SharpDamageMultiplier>
+            <BluntDamageMultiplier>1.3</BluntDamageMultiplier>
+        </statBases>
+        <stuffProps>
+            <commonality>0.02</commonality>
+            <statFactors>
+                <MaxHitPoints>3.5</MaxHitPoints>
+                <Beauty>2</Beauty>
+                <Flammability>0</Flammability>
+                <WorkToMake>1.5</WorkToMake>
+                <WorkToBuild>1.5</WorkToBuild>
+                <MeleeWeapon_CooldownMultiplier>1</MeleeWeapon_CooldownMultiplier>
+            </statFactors>
+        </stuffProps>
+        <thingSetMakerTags><li>RewardStandardHighFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <ThingDef ParentName="AOTC_ResourceBase">
+        <defName>AOTC_MaterialBeauty_GenI</defName>
+        <label>opulent starsteel</label>
+        <description>Ultra-advanced, and exceptionally versatile metal with antimicrobial, insulating, and psychic-enhancing properties. Starsteel can be used for any purpose, from warship plating to clothing. Starsteel is infused with the enigmatic Cosmic Matter, which provides the metal all of its near-magical properties. Starsteel's molecular structure must be precisely engineered, as imperfections drastically reduce how much Cosmic Matter the material can contain.\n\nThis starsteel has a much higher gold content, which drastically improves its beauty. It contains less Cosmic Matter than regular starsteel, however; it is not as durable as starsteel.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Resource/AOTC_MaterialBeauty_GenI</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>60</MarketValue>
+            <Mass>0.48</Mass>
+            <StuffPower_Armor_Sharp>1.4</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.4</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>1</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>40</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>40</StuffPower_Insulation_Heat>
+            <SharpDamageMultiplier>1.4</SharpDamageMultiplier>
+            <BluntDamageMultiplier>1.4</BluntDamageMultiplier>
+        </statBases>
+        <stuffProps>
+            <commonality>0.01</commonality>
+            <statFactors>
+                <MaxHitPoints>3.5</MaxHitPoints>
+                <Beauty>4</Beauty>
+                <Flammability>0</Flammability>
+                <WorkToMake>1.5</WorkToMake>
+                <WorkToBuild>1.5</WorkToBuild>
+                <MeleeWeapon_CooldownMultiplier>1</MeleeWeapon_CooldownMultiplier>
+            </statFactors>
+        </stuffProps>
+        <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    </ThingDef>
+
+    <ThingDef ParentName="AOTC_ComponentBase">
+        <defName>AOTC_Component_GenI</defName>
+        <label>starsteel component</label>
+        <description>High-durability and high-throughput machinery made of pure Starsteel.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Resource/AOTC_Component_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>400</MarketValue>
+            <MaxHitPoints>250</MaxHitPoints>
+        </statBases>
+    </ThingDef>
+
+    <!-- 5 Plasteel, 1 Advanced Component >> 1 proto-cosmic capacitor -->
+    <ThingDef ParentName="AOTC_ResourceIngredientBase">
+        <defName>AOTC_ResourceIngedientUnfilled_GenI</defName>
+        <label>proto-cosmic capacitor</label>
+        <description>A large container capable of storing an extremely dilute form of Cosmic Matter called proto-cosmic charge. The container is reusable but also fragile, as its internal components are extremely delicate and cannot withstand any disruption or damage.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Resource/AOTC_ResourceIngedientUnfilled_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>25</MaxHitPoints>
+            <MarketValue>250</MarketValue>
+        </statBases>
+    </ThingDef>
+    
+    <!-- 1 Starsteel Capacitor + [Time] >>> 1 proto-cosmic charge -->
+    <ThingDef ParentName="AOTC_ResourceIngredientBase">
+        <defName>AOTC_ResourceIngedientFilled_GenI</defName>
+        <label>proto-cosmic charge</label>
+        <description>A large container containing an extremely dilute form of Cosmic Matter called proto-cosmic charge, ready to be transported to create starsteel. The container is reusable but also fragile, as its internal components are extremely delicate and cannot withstand any disruption or damage.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Resource/AOTC_ResourceIngedientFilled_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>25</MaxHitPoints>
+            <MarketValue>350</MarketValue>
+        </statBases>
+    </ThingDef>
+
+    
+    <!-- [==========] GENERATION 2 "COSMISTELLAR" [==========] -->
+    
+</Defs>

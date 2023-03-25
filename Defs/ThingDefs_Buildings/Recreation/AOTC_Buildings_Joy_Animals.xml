@@ -1,0 +1,72 @@
+<Defs>
+    
+    <JoyKindDef>
+        <defName>AOTC_GamingAnimals</defName>
+        <label>animals play</label>
+    </JoyKindDef>
+
+
+    <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
+    
+    <ThingDef ParentName="AOTC_JoyBase">
+        <defName>AOTC_GamingAnimals_GenI</defName>
+        <label>stellar animals entertainment station</label>
+        <description>An interactive holo-computer station containing a variety of ranching games, both modern and ancient, singleplayer and multiplayer. Up to eight people can use the station at once.\n\nSTATS: Consumes 150 Watts\nTrains Animals skill, 0.24xp per second</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Buildings/Joy/AOTC_GamingAnimals_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4,4)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <Beauty>12</Beauty>
+            <JoyGainFactor>1.5</JoyGainFactor>
+        </statBases>
+        <costList>
+            <AOTC_MaterialTough_GenI>35</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>1</AOTC_Component_GenI>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>150</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
+            <li Class="CompProperties_Flickable" />
+        </comps>
+        <researchPrerequisites>
+            <li>AOTC_GenI_Recreation</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <JoyGiverDef>
+        <defName>AOTC_GamingAnimals_GenI</defName>
+        <giverClass>JoyGiver_WatchBuilding</giverClass>
+        <baseChance>2</baseChance>
+        <thingDefs>
+            <li>AOTC_GamingAnimals_GenI</li>
+        </thingDefs>
+        <jobDef>AOTC_GamingAnimals_GenI</jobDef>
+        <joyKind>AOTC_GamingAnimals</joyKind>
+    </JoyGiverDef>
+
+    <JobDef>
+        <defName>AOTC_GamingAnimals_GenI</defName>
+        <driverClass>JobDriver_WatchBuilding</driverClass>
+        <reportString>playing animals-training game.</reportString>
+        <joyDuration>4000</joyDuration>
+        <joyMaxParticipants>8</joyMaxParticipants>
+        <joySkill>Animals</joySkill>
+        <joyXpPerTick>0.004</joyXpPerTick>
+        <joyKind>AOTC_GamingAnimals</joyKind>
+        <taleOnCompletion>PlayedGame</taleOnCompletion>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+</Defs>
