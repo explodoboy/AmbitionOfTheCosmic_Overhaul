@@ -25,9 +25,6 @@
                 <compClass>Armorshield.CompShieldRanged</compClass>
             </li>
         </comps>
-        <thingSetMakerTags>
-            <li>RewardStandardQualitySuper</li>
-        </thingSetMakerTags>
         <thingCategories>
             <li>ApparelUtility</li>
         </thingCategories>
@@ -69,9 +66,6 @@
             <developmentalStageFilter>Child, Adult</developmentalStageFilter>
         </apparel>
         <allowedArchonexusCount>10</allowedArchonexusCount>
-        <tradeTags>
-            <li>Armor</li>
-        </tradeTags>
     </ThingDef>
 
     <ThingDef ParentName="AOTC_ShieldBeltBase">
@@ -147,6 +141,12 @@
                 <Crafting>10</Crafting>
             </skillRequirements>
         </recipeMaker>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+        <tradeTags>
+            <li>Armor</li>
+        </tradeTags>
     </ThingDef>
 
 </Defs>

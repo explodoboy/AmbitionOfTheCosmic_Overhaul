@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Royalty</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/RecipeDef[defName="AOTC_DrugPsychicBoost_GenI"]/recipeUsers</xpath>
+            <value>
+                <li>AOTC_CraftingMain_GenI</li>
+            </value>
+        </match>
+    </Operation>
+    
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Royalty</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/RecipeDef[defName="AOTC_DrugPsychicBoost_GenI_Bulk"]/recipeUsers</xpath>
+            <value>
+                <li>AOTC_CraftingMain_GenI</li>
+            </value>
+        </match>
+    </Operation>
+    
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Royalty</li>
+        </mods>
+        <match Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName="AOTC_UtilityBelt_GenI"]/description</xpath>
+            <value>
+                <description>A multi-purpose utility pack attached to the waist with a personal shield and jump module. The personal shield protects against incoming projectiles and shrapnel, but does not protect against melee attacks or heat and shuts down instantly if hit by an EMP. Unlike regular personal shields, the stellar utility pack allows for its user to shoot with the shield active. The jump module does not require fuel to function, and instead requires an hour to recharge between uses.</description>
+            </value>
+        </match>
+    </Operation>
+
+</Patch>

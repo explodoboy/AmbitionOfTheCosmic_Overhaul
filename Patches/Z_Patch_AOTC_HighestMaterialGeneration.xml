@@ -1,0 +1,73 @@
+<Patch>
+
+    <Operation Class="XmlExtensions.UseSetting">
+        <modId>explodoboy.AmbitionOfTheCosmic</modId>
+        <key>AOTC_HighestResourceGeneration</key>
+        <defaultValue>Gen0</defaultValue>
+        <apply>
+            <Operation Class="XmlExtensions.PatchByCase">
+                <value>{AOTC_HighestResourceGeneration}</value>
+                <cases>
+                    <li>
+                        <value>Gen0</value> <!-- Completely disable the ability for AOTC materials to spawn randomly in the world. -->
+                        <apply>
+
+                            <!-- Starsteel -->
+                            <Operation Class="PatchOperationReplace">
+                                <xpath>Defs/ThingDef[defName="AOTC_MaterialTough_GenI"]/stuffProps/commonality</xpath>
+                                <value><commonality>0</commonality></value>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_MaterialTough_GenI"]/thingSetMakerTags</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_MaterialTough_GenI"]/tradeTags</xpath>
+                            </Operation>
+
+                            <!-- Flawed starsteel -->
+                            <Operation Class="PatchOperationReplace">
+                                <xpath>Defs/ThingDef[defName="AOTC_MaterialToughBad_GenI"]/stuffProps/commonality</xpath>
+                                <value><commonality>0</commonality></value>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_MaterialToughBad_GenI"]/thingSetMakerTags</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_MaterialToughBad_GenI"]/tradeTags</xpath>
+                            </Operation>
+
+                            <!-- Opulent starsteel -->
+                            <Operation Class="PatchOperationReplace">
+                                <xpath>Defs/ThingDef[defName="AOTC_MaterialBeauty_GenI"]/stuffProps/commonality</xpath>
+                                <value><commonality>0</commonality></value>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_MaterialBeauty_GenI"]/thingSetMakerTags</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_MaterialBeauty_GenI"]/tradeTags</xpath>
+                            </Operation>
+
+                            <!-- Starsteel component -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_Component_GenI"]/tradeTags</xpath>
+                            </Operation>
+
+                            <!-- Proto-cosmic capacitor -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_ResourceIngedientUnfilled_GenI"]/tradeTags</xpath>
+                            </Operation>
+
+                            <!-- Proto-cosmic charge -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_ResourceIngedientFilled_GenI"]/tradeTags</xpath>
+                            </Operation>
+
+                        </apply>
+                    </li>
+                </cases>
+            </Operation>
+        </apply>
+    </Operation>
+
+</Patch>

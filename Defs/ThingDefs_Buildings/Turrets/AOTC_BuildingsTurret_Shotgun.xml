@@ -1,0 +1,97 @@
+<Defs>
+
+    <ThingDef Abstract="True" Name="AOTC_TurretBase_Shotgun" ParentName="AOTC_TurretBase">
+        <graphicData>
+            <texPath>BaseAOTC/Things/Building/Security/TurretBase_Medium</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+            <damageData>
+                <rect>(0.2,0.2,0.6,0.6)</rect>
+            </damageData>
+            <shadowData>
+                <volume>(0.27,0.25,0.27)</volume>
+                <offset>(0,0,0)</offset>
+            </shadowData>
+        </graphicData>
+        <statBases>
+            <WorkToBuild>1800</WorkToBuild>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="AOTC_TurretBase_Shotgun">
+        <defName>AOTC_TurretShotgun_GenI</defName>
+        <label>stellar wavegun turret</label>
+        <description>A portable lightweight turret mounted with a stellar wavegun. The turret requires starsteel to refurbish its barrel after heavy use. It cannot be directly controlled, so beware of friendly fire. Unlike regular turrets, the stellar wavegun turret does not have any risk of exploding when damaged.\n\nSTATS:\n60 shots before rearm.\n1 starsteel provides 3 ammo.\n20 starsteel per full reload.</description>
+        <uiIconPath>BaseAOTC/Things/Building/Security/AOTC_TurretShotgun_GenI_Icon</uiIconPath>
+        <building>
+            <combatPower>210</combatPower>   <!-- 60 * TOUGH material multiplier -->
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretGunDef>AOTC_Gun_TurretShotgun_GenI</turretGunDef>
+            <turretBurstCooldownTime>1.45</turretBurstCooldownTime> <!-- verb cooldown + aim time -->
+        </building>
+        <statBases>
+            <MaxHitPoints>440</MaxHitPoints> <!-- 125 * TOUGH material multiplier. rounded to the nearest 5 -->
+            <Mass>5</Mass>
+            <Beauty>10</Beauty>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>500</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Shots until barrel change</fuelLabel>
+                <fuelGizmoLabel>Barrel durability</fuelGizmoLabel>
+                <outOfFuelMessage>Needs new barrel</outOfFuelMessage>
+                <fuelFilter><thingDefs><li>AOTC_MaterialTough_GenI</li></thingDefs></fuelFilter>
+                <fuelCapacity>60</fuelCapacity> <!-- Extra capacity because of higher firerate -->
+                <fuelMultiplier>3</fuelMultiplier> <!-- 0.33 starsteel per shot. -->
+                <initialFuelPercent>1</initialFuelPercent>
+                <autoRefuelPercent>0.5</autoRefuelPercent>
+                <showFuelGizmo>true</showFuelGizmo>
+                <minimumFueledThreshold>1</minimumFueledThreshold>
+                <factorByDifficulty>true</factorByDifficulty>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+            </li>
+        </comps>
+        <costList>
+            <AOTC_MaterialTough_GenI>120</AOTC_MaterialTough_GenI> <!-- Weapon cost x2 -->
+            <AOTC_Component_GenI>6</AOTC_Component_GenI> <!-- Weapon cost x2 -->
+        </costList>
+        <researchPrerequisites>
+            <li>AOTC_GenI_WeaponsRanged</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="AOTC_BaseWeaponTurret">
+        <defName>AOTC_Gun_TurretShotgun_GenI</defName>
+        <label>stellar wavegun turret gun</label>
+        <description>A stellar wavegun made to be mounted on a turret.</description>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Building/Security/AOTC_Gun_TurretShotgun_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases> <!-- Stats and verbs are copied straight from its generational equivalent, plus three the three lines at the bottom and without WorkToMake. -->
+            <AccuracyTouch>0.75</AccuracyTouch>
+            <AccuracyShort>0.72</AccuracyShort>
+            <AccuracyMedium>0.62</AccuracyMedium>
+            <AccuracyLong>0.59</AccuracyLong>
+            <RangedWeapon_Cooldown>0.75</RangedWeapon_Cooldown>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>AOTC_ShotgunBullet_GenI</defaultProjectile>
+                <warmupTime>0.7</warmupTime>
+                <range>20.9</range>
+                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+                <consumeFuelPerShot>1</consumeFuelPerShot>
+            </li>
+        </verbs>
+    </ThingDef>
+
+</Defs>

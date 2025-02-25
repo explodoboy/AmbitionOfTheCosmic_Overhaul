@@ -3,7 +3,7 @@
 
 <name>Ambition of the Cosmic v3.0 Testing</name>
 <author>explodoboy</author>
-<packageId>explodoboy.SNSAmbitionCosmic.TempOverhaul</packageId>
+<packageId>explodoboy.AmbitionOfTheCosmic.TempOverhaul</packageId>
 <supportedVersions><li>1.4</li></supportedVersions>
 <modDependencies>
     <li>

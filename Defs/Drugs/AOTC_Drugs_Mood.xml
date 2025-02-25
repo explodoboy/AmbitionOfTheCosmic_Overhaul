@@ -62,6 +62,7 @@
             <li>AOTC_GenI_MedicineAndDrugs</li>
         </researchPrerequisites>
         <techLevel>Ultra</techLevel> <!-- Assuming highest just in case. -->
+        <tradeTags Inherit="False"><li>Drugs</li></tradeTags> <!-- Inside Def and not base to allow modsettings to disable -->
         <comps>
             <li Class="CompProperties_Drug">
                 <addictiveness>0</addictiveness>

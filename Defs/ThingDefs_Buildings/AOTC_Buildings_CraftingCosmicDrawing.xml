@@ -54,7 +54,7 @@
         <label>proto-cosmic accumilator</label>
         <description>A device that generates a vacuum and siphons latent Cosmic Matter emitted by some distant Cosmic Precursor device. Cosmic Matter gathered from this device is extremely low-energy. Cosmic Matter gathered inside the device must be stored in a custom-made container for the accumilator.\n\nSTATS: Consumes 5,000 Watts</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Production/AOTC_CraftingCosmicDrawing_GenI/AOTC_CraftingCosmicDrawing_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Production/AOTC_CraftingCosmicDrawing_GenI/AOTC_CraftingCosmicDrawing_GenI</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(3,3)</drawSize>
             <damageData>

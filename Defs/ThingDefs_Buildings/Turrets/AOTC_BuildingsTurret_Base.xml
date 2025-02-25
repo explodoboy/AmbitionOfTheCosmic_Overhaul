@@ -1,0 +1,44 @@
+<Defs>
+
+    <ThingDef Abstract="True" Name="AOTC_TurretBase" ParentName="BuildingBase">
+        <thingClass>Building_TurretGun</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <uiIconScale>2.70</uiIconScale>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
+        <statBases>
+            <Flammability>0</Flammability>
+            <ShootingAccuracyTurret>1</ShootingAccuracyTurret> <!-- According to my understanding of vanilla files and its comments, this should be like a level 20 (human) shooter. -->
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Flickable"/>
+        </comps>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <hasTooltip>true</hasTooltip>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <designationCategory>AOTC</designationCategory>
+        <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+            <li>PlaceWorker_ShowTurretRadius</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef Abstract="True" Name="AOTC_BaseWeaponTurret" ParentName="BaseWeaponTurret">
+        <statBases>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>5</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+    </ThingDef>
+
+</Defs>

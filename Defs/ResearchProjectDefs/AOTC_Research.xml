@@ -73,11 +73,12 @@
 
     <!-- [==========] GENERATION 1 "STELLAR" [==========] -->
 
-    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+    <ResearchProjectDef ParentName="AOTC_ResearchBase">
         <defName>AOTC_GenI_Unlocker</defName>
         <label>proto-cosmic analysis</label>
         <description>Unlock the ability to begin experimenting with enigmatic Cosmic Matter, and learn how to use it.\n\nAll the secrets of Cosmic Matter originate from the Cosmic Precursors, an extinct alien species that achieved a level of technological advancement unfathomable to us and everything we know, including the Archotechs.</description>
         <baseCost>10000</baseCost>
+		<techLevel>Ultra</techLevel>
 		<prerequisites>
 			<li>ShipComputerCore</li>
 			<li>ShipEngine</li>
@@ -224,6 +225,30 @@
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_Turrets</defName>
+        <label>plasma-weapon turret designs</label>
+        <description>Produce advanced turrets that utilize the designs of stellar weaponry.</description>
+        <baseCost>5250</baseCost> <!-- effective 3500 -->
+		<prerequisites>
+			<li>AOTC_GenI_WeaponsRanged</li>
+		</prerequisites>
+        <researchViewX>3</researchViewX>
+        <researchViewY>0.75</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+        <defName>AOTC_GenI_Grenades</defName>
+        <label>advanced grenade designs</label>
+        <description>Produce compact and powerful grenades using starsteel.</description>
+        <baseCost>7500</baseCost> <!-- effective 5000 -->
+		<prerequisites>
+			<li>AOTC_GenI_MaterialProduction</li>
+		</prerequisites>
+        <researchViewX>3</researchViewX>
+        <researchViewY>1.5</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
         <defName>AOTC_GenI_WeaponsMelee</defName>
         <label>starsteel-based melee weapons</label>
         <description>Produce melee weapons that make full use of starsteel's multi-function properties.</description>
@@ -232,11 +257,11 @@
 			<li>AOTC_GenI_MaterialProduction</li>
 		</prerequisites>
         <researchViewX>3</researchViewX>
-        <researchViewY>0.75</researchViewY>
+        <researchViewY>2.25</researchViewY>
     </ResearchProjectDef>
 
     <!-- Infinite Research -->
-    <ResearchProjectDef ParentName="AOTC_ResearchBase_GenI">
+    <ResearchProjectDef ParentName="AOTC_ResearchBase">
         <defName>AOTC_EndOfTechTree</defName>
         <label>The Technological Ceiling</label>
         <description>We can go no further. The secrets of the Cosmic are beyond our reach.</description>
@@ -251,10 +276,13 @@
 			<li>AOTC_GenI_Bionics</li>
 			<li>AOTC_GenI_Armor</li>
 			<li>AOTC_GenI_WeaponsRanged</li>
+			<li>AOTC_GenI_Turrets</li>
+			<li>AOTC_GenI_Grenades</li>
 			<li>AOTC_GenI_WeaponsMelee</li>
 		</prerequisites>
         <researchViewX>4</researchViewX>
         <researchViewY>2.5</researchViewY>
+		<techLevel>Archotech</techLevel>
 		<modExtensions>
 			<li Class="InfiniteResearch.ResearchExtension_Infinite" />
 		</modExtensions>

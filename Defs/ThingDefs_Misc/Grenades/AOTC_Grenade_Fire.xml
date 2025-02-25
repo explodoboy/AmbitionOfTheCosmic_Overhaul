@@ -1,0 +1,69 @@
+<Defs>
+
+    <ThingDef ParentName="AOTC_GrenadeBase">
+        <defName>AOTC_GrenadeFire_GenI</defName>
+        <label>stellar fire grenade</label>
+        <description>High-pressure fire grenade with mobility thrusters for extended range. They can be thrown at a decent distance where they'll discharge, igniting everything flammable around them.</description>
+        <recipeMaker>
+            <researchPrerequisite>AOTC_GenI_Grenades</researchPrerequisite>
+            <recipeUsers Inherit="False">
+                <li>AOTC_CraftingMain_GenI</li>
+            </recipeUsers>
+        </recipeMaker>
+        <weaponTags>
+            <li>GrenadeDestructive</li>
+            <li>GrenadeFlame</li>
+        </weaponTags>
+        <tradeTags Inherit="False">
+            <li>WeaponRanged</li>
+        </tradeTags>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Item/Equipment/WeaponRanged/AOTC_GrenadeFire_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <techLevel>Ultra</techLevel> <!-- Override for Gen1, since it's the only non-Archotech generation. -->
+        <costList>
+            <AOTC_MaterialTough_GenI>30</AOTC_MaterialTough_GenI>
+            <AOTC_Component_GenI>4</AOTC_Component_GenI>
+        </costList>
+        <verbs>
+            <li>
+                <label>throw stellar fire grenade</label>
+                <verbClass>Verb_LaunchProjectile</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <range>17.9</range>
+                <forcedMissRadius>1.9</forcedMissRadius>
+                <warmupTime>1.5</warmupTime>
+                <noiseRadius>4</noiseRadius>
+                <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+                <soundCast>ThrowGrenade</soundCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+                <defaultProjectile>AOTC_Proj_GrenadeFire_GenI</defaultProjectile>
+                <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+            </li>
+        </verbs>
+    </ThingDef>
+
+  <ThingDef ParentName="BaseGrenadeProjectile">
+        <defName>AOTC_Proj_GrenadeFire_GenI</defName>
+        <label>stellar fire grenade</label>
+        <thingClass>Projectile_Explosive</thingClass>
+        <graphicData>
+            <texPath>BaseAOTC/Things/Projectile/AOTC_Proj_GrenadeFire_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <explosionRadius>2</explosionRadius>
+            <damageDef>Flame</damageDef> <!-- Base 'Flame' damage is 10 -->
+            <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+            <ai_IsIncendiary>true</ai_IsIncendiary>
+            <screenShakeFactor>0.5</screenShakeFactor>
+            <damageAmountBase>13</damageAmountBase>
+            <explosionDelay>100</explosionDelay>
+        </projectile>
+  </ThingDef>
+
+</Defs>

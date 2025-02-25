@@ -36,7 +36,7 @@
         <label>stellar hydroponics basin</label>
         <description>An artificial nutrient bath for growing plants, made with superior technology with a much higher effective soil fertility. The stellar hydroponics basin is also much cleaner than regular hydroponics basins. The nutrient pumps must work continuously; the plants will die if power is cut.\n\nSTATS:\nConsumes 120 Watts\nHas 500% fertility</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Production/AOTC_Hydroponics_GenI/AOTC_Hydroponics_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Production/AOTC_Hydroponics_GenI/AOTC_Hydroponics_GenI</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(1,4)</drawSize>
             <damageData>

@@ -6,21 +6,6 @@
             <Mass>5</Mass>
             <!--WorkToMake>45000</WorkToMake--> <!-- Use this as reference for recipes in crafting station. -->
         </statBases>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>10</Crafting>
-            </skillRequirements>
-        </recipeMaker>
-        <weaponTags>
-            <li>SpacerGun</li>
-        </weaponTags>
-        <tradeTags>
-            <li>WeaponRanged</li>
-        </tradeTags>
-        <thingSetMakerTags>
-            <li>RewardStandardQualitySuper</li>
-            <li>RewardStandardMidFreq</li>
-        </thingSetMakerTags>
     </ThingDef>
 
 
@@ -77,11 +62,23 @@
             </li>
         </tools>
         <recipeMaker>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
             <recipeUsers Inherit="False">
                 <li>AOTC_CraftingMain_GenI</li>
             </recipeUsers>
-            <researchPrerequisite>AOTC_GenI_WeaponsRanged</researchPrerequisite>
         </recipeMaker>
+        <weaponTags>
+            <li>SpacerGun</li>
+        </weaponTags>
+        <tradeTags>
+            <li>WeaponRanged</li>
+        </tradeTags>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+            <li>RewardStandardMidFreq</li>
+        </thingSetMakerTags>
         <costList>
             <AOTC_MaterialTough_GenI>50</AOTC_MaterialTough_GenI>
             <AOTC_Component_GenI>2</AOTC_Component_GenI>
@@ -94,6 +91,7 @@
         <graphicData>
             <texPath>BaseAOTC/Things/Projectile/AOTC_RifleBullet_GenI</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
         </graphicData>
         <projectile>
             <damageDef>Bullet</damageDef>

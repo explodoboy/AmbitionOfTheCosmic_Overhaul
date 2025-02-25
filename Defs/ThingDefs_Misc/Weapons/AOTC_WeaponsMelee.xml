@@ -11,10 +11,10 @@
             <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
             <recipeUsers><li>AOTC_CraftingMain_GenI</li></recipeUsers>
             <researchPrerequisite>AOTC_GenI_WeaponsMelee</researchPrerequisite>
-            <defaultIngredientFilter><disallowedThingDefs Inherit="False" /></defaultIngredientFilter> <!-- Fuck it, let's let people make AOTC swords out of anything. Even wood, for the absolute madmen out there. -->
+            <!--defaultIngredientFilter><disallowedThingDefs Inherit="False" /></defaultIngredientFilter-->
         </recipeMaker>
         <tradeTags>
-            <li>WeaponMelee</li> <!-- Putting this in here again so I can remember to have this disabled for ModOptions (mod settings) -->
+            <li>WeaponMelee</li>
         </tradeTags>
         <costList>
             <AOTC_MaterialTough_GenI>80</AOTC_MaterialTough_GenI>
@@ -37,10 +37,10 @@
             <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
             <recipeUsers><li>AOTC_CraftingMain_GenI</li></recipeUsers>
             <researchPrerequisite>AOTC_GenI_WeaponsMelee</researchPrerequisite>
-            <defaultIngredientFilter><disallowedThingDefs Inherit="False" /></defaultIngredientFilter> <!-- Fuck it, let's let people make AOTC swords out of anything. Even wood, for the absolute madmen out there. -->
+            <!--defaultIngredientFilter><disallowedThingDefs Inherit="False" /></defaultIngredientFilter-->
         </recipeMaker>
         <tradeTags>
-            <li>WeaponMelee</li> <!-- Putting this in here again so I can remember to have this disabled for ModOptions (mod settings) -->
+            <li>WeaponMelee</li>
         </tradeTags>
         <costList>
             <AOTC_MaterialTough_GenI>80</AOTC_MaterialTough_GenI>

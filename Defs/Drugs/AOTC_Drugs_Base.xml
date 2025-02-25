@@ -11,9 +11,6 @@
             <Beauty>4</Beauty>
             <Mass>0.25</Mass>
         </statBases>
-        <tradeTags>
-            <li>Drugs</li> <!-- Copying over to make sure I don't forget to make a disable patch for AOTC ModOptions. -->
-        </tradeTags>
         <techLevel>Archotech</techLevel> <!-- Assuming highest just in case. -->
     </ThingDef>
 

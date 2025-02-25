@@ -54,7 +54,7 @@
         <label>stellar bionics assembly bench</label>
         <description>A workbench with equipment for assembling bionic implants, limbs, and organs out of starsteel.\n\nSTATS:\nConsumes 500 Watts</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Production/AOTC_CraftingBionics_GenI/AOTC_CraftingBionics_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Production/AOTC_CraftingBionics_GenI/AOTC_CraftingBionics_GenI</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(7,3)</drawSize>
             <damageData>

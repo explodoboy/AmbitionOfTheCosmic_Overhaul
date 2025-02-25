@@ -1,0 +1,312 @@
+<Patch>
+
+    <Operation Class="XmlExtensions.UseSetting">
+        <modId>explodoboy.AmbitionOfTheCosmic</modId>
+        <key>AOTC_HighestUnlockableGeneration</key>
+        <defaultValue>Gen0</defaultValue>
+        <apply>
+            <Operation Class="XmlExtensions.PatchByCase">
+                <value>{AOTC_HighestUnlockableGeneration}</value>
+                <cases>
+                    <li>
+                        <value>Gen0</value> <!-- Completely disable the ability for AOTC materials to spawn randomly in the world. -->
+                        <apply>
+
+                            <!-- Disable bionics -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[@Name="AOTC_BionicItemBase_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+
+
+                            <!-- Disable stellar forge -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/RecipeDef[@Name="AOTC_GenI_CraftingMainRecipeBase"]/recipeUsers</xpath>
+                            </Operation>
+
+
+                            <!-- Disable proto-cosmic accumilator -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/RecipeDef[@Name="AOTC_GenI_CraftingCosmicDrawingRecipeBase"]/recipeUsers</xpath>
+                            </Operation>
+
+
+                            <!-- Disable research -->
+                            <Operation Class="PatchOperationReplace">
+                                <xpath>Defs/ResearchProjectDef[defName="AOTC_GenI_Unlocker"]/baseCost</xpath>
+                                <value><baseCost>Infinity</baseCost></value>
+                            </Operation>
+                            <Operation Class="PatchOperationAddModExtension">
+                                <xpath>Defs/ResearchProjectDef[defName="AOTC_GenI_Unlocker"]</xpath>
+                                <value>
+                                    <li Class="InfiniteResearch.ResearchExtension_Infinite" />
+                                </value>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationReplace">
+                                <xpath>Defs/ResearchProjectDef[defName="AOTC_EndOfTechTree"]/prerequisites</xpath>
+                                <value> <!-- Copy prerequisites from highest generation unlocker tech. -->
+                                    <prerequisites>
+                                        <li>ShipComputerCore</li>
+                                        <li>ShipEngine</li>
+                                        <li>ShipReactor</li>
+                                        <li>ShipCryptosleep</li>
+                                        <li>ShipSensorCluster</li>
+                                    </prerequisites>
+                                </value>
+                            </Operation>
+
+
+                            <!-- Disable grenades -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_GrenadeEMP_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_GrenadeExplosive_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_GrenadeFire_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_GrenadeFirefoam_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_GrenadeStun_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_GrenadeToxGas_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+
+
+                            <!-- Disable buildings -->
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingAnimals_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingArtistic_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingConstruction_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingCooking_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingCrafting_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingIntellectual_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingMedical_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingMelee_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingMining_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingPlants_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingShooting_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingSocial_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_GamingTelescope_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_TurretPistol_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_TurretRifle_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_TurretShotgun_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_TurretSniper_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_Battery_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_CraftingBionics_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_CraftingCosmicDrawing_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_CraftingMain_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_CraftingMainLinkable_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_Hydroponics_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_Linkable_ResearchUnlockerGenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_PowerGeneratorFueled_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_PowerGeneratorFueledPortable_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/ThingDef[defName="AOTC_PowerGeneratorFree_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+                            
+
+                            <!-- Floors -->
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/TerrainDef[defName="AOTC_FloorTough_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+
+                            <Operation Class="PatchOperationAdd">
+                                <xpath>Defs/TerrainDef[defName="AOTC_FloorBeauty_GenI"]</xpath>
+                                <value>
+                                    <designationCategory></designationCategory>
+                                </value>
+                            </Operation>
+
+
+                            <!-- Melee -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[@Name="AOTC_BaseMeleeWeapon_Sharp_Quality_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[@Name="AOTC_BaseMeleeWeapon_Blunt_Quality_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+
+                            <!-- Guns -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_Pistol_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_Rifle_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_Shotgun_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_Sniper_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+
+
+                            <!-- Apparel -->
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_ArmorBody_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_ArmorHead_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+                            
+                            <Operation Class="PatchOperationRemove">
+                                <xpath>Defs/ThingDef[defName="AOTC_UtilityBelt_GenI"]/recipeMaker/recipeUsers</xpath>
+                            </Operation>
+
+                        </apply>
+                    </li>
+                </cases>
+            </Operation>
+        </apply>
+    </Operation>
+
+</Patch>

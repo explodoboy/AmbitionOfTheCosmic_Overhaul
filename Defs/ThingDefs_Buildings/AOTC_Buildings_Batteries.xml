@@ -37,7 +37,7 @@
         <label>stellar battery</label>
         <description>Stores electricity for later use. The battery stores 100% of the energy input into it, and does not explode or take damage when exposed to rain.\n\nSTATS:\nStores 2500 Wd\nIf RT Fuse is enabled, mitigates up to 2500 Wd during a Zzzt... event.</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Power/AOTC_Battery_GenI/AOTC_Battery_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Power/AOTC_Battery_GenI/AOTC_Battery_GenI</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(3,4)</drawSize>
             <damageData>

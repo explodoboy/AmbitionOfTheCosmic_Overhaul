@@ -22,7 +22,7 @@
                 <color>(255,0,0)</color>
             </li>
             <li Class="XmlExtensions.Setting.Text">
-                <text>(Settings currently in progress, changing settings currently does nothing. Settings will probably come with Gen2.)</text>
+                <text>(Settings may sometimes not work completely while AOTC v3.0 is in development)</text>
                 <font>Small</font>
                 <anchor>Middle</anchor>
             </li>
@@ -127,7 +127,7 @@
                     <li Class="XmlExtensions.Setting.SplitColumn">
                         <leftCol>
                             <li Class="XmlExtensions.Setting.Text">
-                                <text>Highest Resource Generation: The highest generation of resource items that can randomly spawn in the world. Only allows basic materials (building materials) to spawn, and not any generational components.\n\nDefault: Gen3</text>
+                                <text>Highest Resource Generation: The highest generation of resource items that can randomly spawn in the world. Only allows basic resources (building/stuffable materials) to spawn, and not any generational components.\n\nDefault: Gen3</text>
                                 <anchor>Left</anchor>
                             </li>
                             <li Class="XmlExtensions.Setting.RadioButtons">

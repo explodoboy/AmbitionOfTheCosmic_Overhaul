@@ -13,7 +13,7 @@
         <label>stellar medical entertainment station</label>
         <description>An interactive holo-computer station containing a variety of wound-tending and surgery games, both modern and ancient, singleplayer and multiplayer. Up to eight people can use the station at once.\n\nSTATS: Consumes 150 Watts\nTrains Medical skill, 0.24xp per second</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Joy/AOTC_GamingMedical_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Joy/AOTC_GamingMedical_GenI</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(4,4)</drawSize>
             <damageData>

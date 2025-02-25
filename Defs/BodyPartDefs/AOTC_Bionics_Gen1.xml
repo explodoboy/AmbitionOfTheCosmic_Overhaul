@@ -25,10 +25,10 @@
             <color>(255,60,0)</color>
         </graphicData>
         <tradeTags>
-            <li>Bionic</li> <!-- Putting this here again as a reminder to have this affected by AOTC ModOptions. -->
+            <li>Bionic</li>
         </tradeTags>
         <techHediffsTags>
-            <li>Advanced</li> <!-- Putting this here again as a reminder to have this affected by AOTC ModOptions. -->
+            <li>Advanced</li>
         </techHediffsTags>
         <statBases>
             <WorkToMake>6000</WorkToMake> <!--- Due to the sheer number of AOTC bionics, I'm reducing work-to-make by a lot. -->
@@ -38,7 +38,7 @@
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>1</Mass>
         </statBases>
-        <recipeMaker>
+        <recipeMaker Inherit="False">
             <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
             <workSkill>Crafting</workSkill>
             <effectWorking>Smith</effectWorking>
@@ -125,6 +125,18 @@
 		<addsHediff>AOTC_BionicEye_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicEye_GenI</defName>
+		<label>remove stellar eye</label>
+		<description>Remove a stellar eye.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicEye_GenI</ThingDef>
+			<HediffDef>AOTC_BionicEye_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar eye.</jobString>
+		<removesHediff>AOTC_BionicEye_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Ear -->
     <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
@@ -157,6 +169,18 @@
 		<appliedOnFixedBodyParts><li>Ear</li></appliedOnFixedBodyParts>
 		<addsHediff>AOTC_BionicEar_GenI</addsHediff>
     </RecipeDef>
+
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicEar_GenI</defName>
+		<label>remove stellar ear</label>
+		<description>Remove a stellar ear.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicEar_GenI</ThingDef>
+			<HediffDef>AOTC_BionicEar_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar ear.</jobString>
+		<removesHediff>AOTC_BionicEar_GenI</removesHediff>
+	</RecipeDef>
 
 
     <!-- Nose -->
@@ -198,6 +222,18 @@
 		<addsHediff>AOTC_BionicNose_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicNose_GenI</defName>
+		<label>remove stellar nose</label>
+		<description>Remove a stellar nose.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicNose_GenI</ThingDef>
+			<HediffDef>AOTC_BionicNose_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar nose.</jobString>
+		<removesHediff>AOTC_BionicNose_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Jaw -->
     <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
@@ -230,6 +266,18 @@
 		<appliedOnFixedBodyParts><li>Jaw</li></appliedOnFixedBodyParts>
 		<addsHediff>AOTC_BionicJaw_GenI</addsHediff>
     </RecipeDef>
+
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicJaw_GenI</defName>
+		<label>remove stellar jaw</label>
+		<description>Remove a stellar jaw.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicJaw_GenI</ThingDef>
+			<HediffDef>AOTC_BionicJaw_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar jaw.</jobString>
+		<removesHediff>AOTC_BionicJaw_GenI</removesHediff>
+	</RecipeDef>
 
 
     <!-- Tongue -->
@@ -264,6 +312,18 @@
 		<addsHediff>AOTC_BionicTongue_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicTongue_GenI</defName>
+		<label>remove stellar tongue</label>
+		<description>Remove a stellar tongue.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicTongue_GenI</ThingDef>
+			<HediffDef>AOTC_BionicTongue_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar tongue.</jobString>
+		<removesHediff>AOTC_BionicTongue_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Arm -->
     <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
@@ -297,6 +357,18 @@
 		<addsHediff>AOTC_BionicArm_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicArm_GenI</defName>
+		<label>remove stellar arm</label>
+		<description>Remove a stellar arm.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicArm_GenI</ThingDef>
+			<HediffDef>AOTC_BionicArm_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar arm.</jobString>
+		<removesHediff>AOTC_BionicArm_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Leg -->
     <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
@@ -329,6 +401,18 @@
 		<appliedOnFixedBodyParts><li>Leg</li></appliedOnFixedBodyParts>
 		<addsHediff>AOTC_BionicLeg_GenI</addsHediff>
     </RecipeDef>
+
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicLeg_GenI</defName>
+		<label>remove stellar leg</label>
+		<description>Remove a stellar leg.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicLeg_GenI</ThingDef>
+			<HediffDef>AOTC_BionicLeg_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar leg.</jobString>
+		<removesHediff>AOTC_BionicLeg_GenI</removesHediff>
+	</RecipeDef>
 
 
     <!-- Spine -->
@@ -364,6 +448,18 @@
 		<addsHediff>AOTC_BionicSpine_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicSpine_GenI</defName>
+		<label>remove stellar spine</label>
+		<description>Remove a stellar spine.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicSpine_GenI</ThingDef>
+			<HediffDef>AOTC_BionicSpine_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar spine.</jobString>
+		<removesHediff>AOTC_BionicSpine_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Heart -->
     <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
@@ -396,6 +492,18 @@
 		<appliedOnFixedBodyParts><li>Heart</li></appliedOnFixedBodyParts>
 		<addsHediff>AOTC_BionicHeart_GenI</addsHediff>
     </RecipeDef>
+
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicHeart_GenI</defName>
+		<label>remove stellar heart</label>
+		<description>Remove a stellar heart.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicHeart_GenI</ThingDef>
+			<HediffDef>AOTC_BionicHeart_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar heart.</jobString>
+		<removesHediff>AOTC_BionicHeart_GenI</removesHediff>
+	</RecipeDef>
 
 
     <!-- Lung -->
@@ -437,6 +545,18 @@
 		<addsHediff>AOTC_BionicLung_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicLung_GenI</defName>
+		<label>remove stellar lung</label>
+		<description>Remove a stellar lung.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicLung_GenI</ThingDef>
+			<HediffDef>AOTC_BionicLung_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar lung.</jobString>
+		<removesHediff>AOTC_BionicLung_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Kidney -->
     <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
@@ -476,6 +596,18 @@
 		<appliedOnFixedBodyParts><li>Kidney</li></appliedOnFixedBodyParts>
 		<addsHediff>AOTC_BionicKidney_GenI</addsHediff>
     </RecipeDef>
+
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicKidney_GenI</defName>
+		<label>remove stellar kidney</label>
+		<description>Remove a stellar kidney.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicKidney_GenI</ThingDef>
+			<HediffDef>AOTC_BionicKidney_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar kidney.</jobString>
+		<removesHediff>AOTC_BionicKidney_GenI</removesHediff>
+	</RecipeDef>
 
 
     <!-- Liver -->
@@ -517,6 +649,18 @@
 		<addsHediff>AOTC_BionicLiver_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicLiver_GenI</defName>
+		<label>remove stellar liver</label>
+		<description>Remove a stellar liver.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicLiver_GenI</ThingDef>
+			<HediffDef>AOTC_BionicLiver_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar liver.</jobString>
+		<removesHediff>AOTC_BionicLiver_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Stomach -->
     <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
@@ -556,11 +700,23 @@
 		<addsHediff>AOTC_BionicStomach_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicStomach_GenI</defName>
+		<label>remove stellar stomach</label>
+		<description>Remove a stellar stomach.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicStomach_GenI</ThingDef>
+			<HediffDef>AOTC_BionicStomach_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar stomach.</jobString>
+		<removesHediff>AOTC_BionicStomach_GenI</removesHediff>
+	</RecipeDef>
+
     
     <!-- IMPLANTS -->
     
     <!-- Brain -->
-    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+    <HediffDef ParentName="AOTC_BionicImplantHediff_GenI">
         <defName>AOTC_BionicBrain_GenI</defName>
         <label>stellar neural enchanter</label>
         <description>An installed stellar neural enchanter.</description>
@@ -603,9 +759,21 @@
 		<addsHediff>AOTC_BionicBrain_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicBrain_GenI</defName>
+		<label>remove stellar neural enchanter</label>
+		<description>Remove a stellar neural enchanter.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicBrain_GenI</ThingDef>
+			<HediffDef>AOTC_BionicBrain_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar neural enchanter.</jobString>
+		<removesHediff>AOTC_BionicBrain_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Head -->
-    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+    <HediffDef ParentName="AOTC_BionicImplantHediff_GenI">
         <defName>AOTC_BionicHead_GenI</defName>
         <label>stellar head armor</label>
         <description>Installed stellar head armor.</description>
@@ -636,9 +804,21 @@
 		<addsHediff>AOTC_BionicHead_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicHead_GenI</defName>
+		<label>remove stellar head armor</label>
+		<description>Remove stellar head armor.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicHead_GenI</ThingDef>
+			<HediffDef>AOTC_BionicHead_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar head armor.</jobString>
+		<removesHediff>AOTC_BionicHead_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Neck -->
-    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+    <HediffDef ParentName="AOTC_BionicImplantHediff_GenI">
         <defName>AOTC_BionicNeck_GenI</defName>
         <label>stellar neck armor</label>
         <description>Installed stellar neck armor.</description>
@@ -669,9 +849,21 @@
 		<addsHediff>AOTC_BionicNeck_GenI</addsHediff>
     </RecipeDef>
 
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicNeck_GenI</defName>
+		<label>remove stellar neck armor</label>
+		<description>Remove stellar neck armor.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicNeck_GenI</ThingDef>
+			<HediffDef>AOTC_BionicNeck_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar neck armor.</jobString>
+		<removesHediff>AOTC_BionicNeck_GenI</removesHediff>
+	</RecipeDef>
+
 
     <!-- Torso -->
-    <HediffDef ParentName="AOTC_BionicBodypartHediff_GenI">
+    <HediffDef ParentName="AOTC_BionicImplantHediff_GenI">
         <defName>AOTC_BionicTorso_GenI</defName>
         <label>stellar torso armor</label>
         <description>Installed stellar torso armor.</description>
@@ -701,5 +893,17 @@
 		<appliedOnFixedBodyParts><li>Torso</li></appliedOnFixedBodyParts>
 		<addsHediff>AOTC_BionicTorso_GenI</addsHediff>
     </RecipeDef>
+
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>AOTC_RemoveBodypart_BionicTorso_GenI</defName>
+		<label>remove stellar torso armor</label>
+		<description>Remove stellar torso armor.</description>
+		<descriptionHyperlinks>
+			<ThingDef>AOTC_BionicTorso_GenI</ThingDef>
+			<HediffDef>AOTC_BionicTorso_GenI</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing stellar torso armor.</jobString>
+		<removesHediff>AOTC_BionicTorso_GenI</removesHediff>
+	</RecipeDef>
     
 </Defs>

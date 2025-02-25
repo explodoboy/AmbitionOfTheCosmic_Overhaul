@@ -20,6 +20,8 @@
                 <li>Shoulders</li>
                 <li>Arms</li>
                 <li>Legs</li>
+                <li>Hands</li>
+                <li>Feet</li>
             </bodyPartGroups>
             <layers>
                 <li>Middle</li>
@@ -36,19 +38,12 @@
             </tags>
             <useDeflectMetalEffect>true</useDeflectMetalEffect>
         </apparel>
-        <tradeTags Inherit="False">
-            <li>HiTechArmor</li>
-            <li>Armor</li>
-        </tradeTags>
         <thingCategories>
             <li>ApparelArmor</li>
         </thingCategories>
         <comps>
             <li Class="CompProperties_Biocodable"/>
         </comps>
-        <thingSetMakerTags>
-          <li>RewardStandardLowFreq</li>
-        </thingSetMakerTags>
         <uiIconScale>1.25</uiIconScale>
         <generateCommonality>0.5</generateCommonality>
         <statBases>
@@ -75,9 +70,6 @@
             <layers>
                 <li>Overhead</li>
             </layers>
-            <defaultOutfitTags>
-                <li>Soldier</li>
-            </defaultOutfitTags>
             <tags>
                 <li>SpacerMilitary</li>
                 <li>RoyalCombatGear</li>
@@ -86,19 +78,12 @@
             </tags>
             <useDeflectMetalEffect>true</useDeflectMetalEffect>
         </apparel>
-        <tradeTags>
-            <li>HiTechArmor</li>
-            <li>Armor</li>
-        </tradeTags>
         <thingCategories>
             <li>ApparelArmor</li>
         </thingCategories>
         <comps>
             <li Class="CompProperties_Biocodable"/>
         </comps>
-        <thingSetMakerTags>
-          <li>RewardStandardLowFreq</li>
-        </thingSetMakerTags>
         <uiIconScale>1.25</uiIconScale>
         <generateCommonality>0.5</generateCommonality>
         <statBases>
@@ -119,24 +104,27 @@
         <label>starguard armor</label>
         <description>A suit of heavy powered armor, built for maximum protection. The suit is made of pure Starsteel, able to withstand both sharp and blunt weaponry equally well. The suit is also highly mechanized; while bulkier than even Cataphract armor, it is not as cumbersome. Additionally, the suit is capable of separating into sections to speed up the process of equipping the suit.\n\nArmor like this is almost exclusively used for super-infantry facing objectives that even Cataphracts would consider suicidal or hopeless.\n\nThe suit has a space-grade seal that, obviously, protects against the vacuum of space. (If SOS2 is enabled, this suit can be used in space)</description>
         <graphicData>
-          <texPath>BaseAOTC/Things/Pawn/Humanlike/Apparel/AOTC_ArmorBody_GenI/AOTC_ArmorBody_GenI</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
+            <texPath>BaseAOTC/Things/Pawn/Humanlike/Apparel/AOTC_ArmorBody_GenI/AOTC_ArmorBody_GenI</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <statBases>
-          <MaxHitPoints>400</MaxHitPoints>
-          <ArmorRating_Sharp>1.4</ArmorRating_Sharp>
-          <ArmorRating_Blunt>1.4</ArmorRating_Blunt>
-          <ArmorRating_Heat>1.4</ArmorRating_Heat>
-          <Insulation_Cold>40</Insulation_Cold>
-          <Insulation_Heat>40</Insulation_Heat>
-          <EquipDelay>14</EquipDelay>
+            <MaxHitPoints>400</MaxHitPoints>
+            <ArmorRating_Sharp>1.4</ArmorRating_Sharp>
+            <ArmorRating_Blunt>1.4</ArmorRating_Blunt>
+            <ArmorRating_Heat>1.4</ArmorRating_Heat>
+            <Insulation_Cold>40</Insulation_Cold>
+            <Insulation_Heat>40</Insulation_Heat>
+            <EquipDelay>14</EquipDelay>
         </statBases>
         <apparel>
             <wornGraphicPath>BaseAOTC/Things/Pawn/Humanlike/Apparel/AOTC_ArmorBody_GenI/AOTC_ArmorBody_GenI</wornGraphicPath>
+            <defaultOutfitTags>
+                <li>Soldier</li>
+            </defaultOutfitTags>
         </apparel>
         <equippedStatOffsets>
-          <MoveSpeed>-0.4</MoveSpeed>
-          <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.5</SlaveSuppressionOffset>
+            <MoveSpeed>-0.4</MoveSpeed>
+            <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.5</SlaveSuppressionOffset>
         </equippedStatOffsets>
         <recipeMaker>
             <recipeUsers Inherit="False"><li>AOTC_CraftingMain_GenI</li></recipeUsers>
@@ -147,6 +135,13 @@
             <AOTC_Component_GenI>6</AOTC_Component_GenI>
             <AOTC_ResourceIngedientFilled_GenI>2</AOTC_ResourceIngedientFilled_GenI>
         </costList>
+        <tradeTags Inherit="False">
+            <li>HiTechArmor</li>
+            <li>Armor</li>
+        </tradeTags>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+        </thingSetMakerTags>
     </ThingDef>
 
     <ThingDef ParentName="AOTC_ArmorHeadBase">
@@ -168,6 +163,9 @@
         </statBases>
         <apparel>
             <wornGraphicPath>BaseAOTC/Things/Pawn/Humanlike/Apparel/AOTC_ArmorHead_GenI/AOTC_ArmorHead_GenI</wornGraphicPath>
+            <defaultOutfitTags>
+                <li>Soldier</li>
+            </defaultOutfitTags>
         </apparel>
         <equippedStatOffsets>
           <MoveSpeed>-0.4</MoveSpeed>
@@ -181,6 +179,13 @@
             <AOTC_MaterialTough_GenI>50</AOTC_MaterialTough_GenI>
             <AOTC_Component_GenI>1</AOTC_Component_GenI>
         </costList>
+        <tradeTags>
+            <li>HiTechArmor</li>
+            <li>Armor</li>
+        </tradeTags>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+        </thingSetMakerTags>
     </ThingDef>
 
 </Defs>

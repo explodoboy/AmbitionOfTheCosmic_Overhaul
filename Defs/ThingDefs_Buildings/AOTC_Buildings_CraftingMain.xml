@@ -84,7 +84,7 @@
         <label>stellar forge</label>
         <description>An advanced workbench with equipment capable of producing pure starsteel, with additional tools capable of producing advanced items from starsteel and cosmisteel.</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Production/AOTC_CraftingMain_GenI/AOTC_CraftingMain_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Production/AOTC_CraftingMain_GenI/AOTC_CraftingMain_GenI</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(7,4)</drawSize>
             <damageData>
@@ -125,7 +125,7 @@
         <label>stellar forge tool cabinet</label>
         <description>A tool cabinet containing a variety of tools made of pure Starsteel, better-fit to handle Cosmic Matter.\n\nSTATS:\nLinks with Stellar Forge; +25% workspeed. Doesn't stack with copies of this building.</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Production/AOTC_CraftingMainLinkable_GenI/AOTC_CraftingMainLinkable_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Production/AOTC_CraftingMainLinkable_GenI/AOTC_CraftingMainLinkable_GenI</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(1,1)</drawSize>
             <damageData>

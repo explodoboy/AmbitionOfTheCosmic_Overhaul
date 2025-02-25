@@ -39,7 +39,7 @@
         <label>advanced fission reactor</label>
         <description>A reactor capable of efficiently generating power from pure, unenriched uranium, without any risk of meltdowns if the reactor is damaged. Spent fuel is atomized and deposited into the local atmosphere harmlessly. The reactor generates a considerable amount of heat when running.\n\nSTATS:\nGenerates 25,000 Watts\nConsumes 1 Uranium per day, can store 75 Uranium; when fully supplied, can run up to 75 days without requiring a refuel.</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Power/AOTC_PowerGeneratorFueled_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Power/AOTC_PowerGeneratorFueled_GenI</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(5,5)</drawSize>
         </graphicData>
@@ -83,9 +83,9 @@
     <ThingDef ParentName="AOTC_PowerGeneratorBase">
         <defName>AOTC_PowerGeneratorFueledPortable_GenI</defName>
         <label>portable advanced fission reactor</label>
-        <description>A portable reactor capable of efficiently generating power from pure, unenriched uranium, without any risk of meltdowns if the reactor is damaged. Spent fuel is atomized and deposited into the local atmosphere harmlessly. The reactor generates a considerable amount of heat when running. The reactor is significantly less fuel-efficient than its larger, stationary version.\n\nSTATS:\nGenerates 10,000 Watts\nConsumes 1 Uranium per 2 days, can store 25 Uranium; when fully supplied, can run up to 50 days without requiring a refuel.</description>
+        <description>A portable reactor capable of efficiently generating power from pure, unenriched uranium, without any risk of meltdowns if the reactor is damaged. Spent fuel is atomized and deposited into the local atmosphere harmlessly. The reactor generates a considerable amount of heat when running. The reactor is significantly less fuel-efficient than its larger, non-portable version.\n\nSTATS:\nGenerates 10,000 Watts\nConsumes 1 Uranium per 2 days, can store 25 Uranium; when fully supplied, can run up to 50 days without requiring a refuel.</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Power/AOTC_PowerGeneratorFueledPortable_GenI/AOTC_PowerGeneratorFueledPortable_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Power/AOTC_PowerGeneratorFueledPortable_GenI/AOTC_PowerGeneratorFueledPortable_GenI</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(3,4)</drawSize>
         </graphicData>
@@ -133,7 +133,7 @@
         <label>perpetual turbine motor</label>
         <description>A power-generating turbine that generates kinetic energy from proto-cosmic charge, capable of generating a small amount of energy for completely free. A significant amount of generated energy is lost in the form of heat.</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Power/AOTC_PowerGeneratorFree_GenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Power/AOTC_PowerGeneratorFree_GenI</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(3,3)</drawSize>
         </graphicData>

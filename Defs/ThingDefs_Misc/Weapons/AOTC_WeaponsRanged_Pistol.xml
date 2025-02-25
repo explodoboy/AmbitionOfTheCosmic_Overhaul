@@ -6,21 +6,6 @@
             <Mass>1.25</Mass>
             <!--WorkToMake>38100</WorkToMake--> <!-- Use this as reference for recipes in crafting station. -->
         </statBases>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>10</Crafting>
-            </skillRequirements>
-        </recipeMaker>
-        <weaponTags>
-            <li>SpacerGun</li>
-        </weaponTags>
-        <tradeTags>
-            <li>WeaponRanged</li>
-        </tradeTags>
-        <thingSetMakerTags>
-            <li>RewardStandardQualitySuper</li>
-            <li>RewardStandardMidFreq</li>
-        </thingSetMakerTags>
     </ThingDef>
 
 
@@ -67,11 +52,23 @@
             </li>
         </tools>
         <recipeMaker>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
             <recipeUsers Inherit="False">
                 <li>AOTC_CraftingMain_GenI</li>
             </recipeUsers>
-            <researchPrerequisite>AOTC_GenI_WeaponsRanged</researchPrerequisite>
         </recipeMaker>
+        <weaponTags>
+            <li>SpacerGun</li>
+        </weaponTags>
+        <tradeTags>
+            <li>WeaponRanged</li>
+        </tradeTags>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+            <li>RewardStandardMidFreq</li>
+        </thingSetMakerTags>
         <costList>
             <AOTC_MaterialTough_GenI>25</AOTC_MaterialTough_GenI>
             <AOTC_Component_GenI>1</AOTC_Component_GenI>

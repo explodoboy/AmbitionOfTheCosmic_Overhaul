@@ -30,7 +30,7 @@
         <label>Proto-Cosmic Analyzer</label>
         <description>A testing facility for working with Proto-Cosmic Charge; an extremely dilute form of Cosmic Matter.\n\nSTATS: Consumes 5,000 Watts\nLinks with research stations; +100% research speed. Doesn't stack with copies of this building\nUnlocks Generation 1 "Stellar" technologies for Ambition of the Cosmic when linked with a research station</description>
         <graphicData>
-            <texPath>BaseAOTC/Things/Buildings/Misc/AOTC_Linkable_ResearchUnlockerGenI</texPath>
+            <texPath>BaseAOTC/Things/Building/Misc/AOTC_Linkable_ResearchUnlockerGenI</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(3,3)</drawSize>
         </graphicData>

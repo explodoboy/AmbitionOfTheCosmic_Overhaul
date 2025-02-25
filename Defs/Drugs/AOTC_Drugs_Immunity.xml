@@ -24,8 +24,8 @@
         <isBad>false</isBad>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
-                    <severityPerDay>-0.19</severityPerDay>
-                    <showHoursToRecover>true</showHoursToRecover>
+                <severityPerDay>-0.19</severityPerDay>
+                <showHoursToRecover>true</showHoursToRecover>
             </li>
         </comps>
     </HediffDef>
@@ -35,7 +35,7 @@
     <ThingDef ParentName="AOTC_DrugImmuneBase">
         <defName>AOTC_DrugImmune_GenI</defName>
         <label>AEGIS-I</label>
-        <description>An injector containing mechanites that repair the body, accelerating healing, vastly boosting the immune system, alongside instantly curing several diseases and conditions that the immune system can't deal with by itself. AEGIS-I has no risk of addiction or overdose.\n\nSTATS:\nRemoves need of rest\nDose gives 5 days of effect\nDuration does not stack</description>
+        <description>An injector containing mechanites that repair the body, accelerating healing, vastly boosting the immune system, alongside instantly curing several diseases and conditions that the immune system can't deal with by itself. AEGIS-I has no risk of addiction or overdose.\n\nSTATS:\nDose gives 5 days of effect\nDuration does not stack</description>
         <descriptionHyperlinks>
             <HediffDef>AOTC_DrugImmune_GenI</HediffDef>
         </descriptionHyperlinks>
@@ -58,7 +58,8 @@
         <researchPrerequisites>
             <li>AOTC_GenI_MedicineAndDrugs</li>
         </researchPrerequisites>
-        <techLevel>Ultra</techLevel> <!-- Assuming highest just in case. -->
+        <techLevel>Ultra</techLevel> <!-- Base assumes Archotech, but Gen1 is Ultra. -->
+        <tradeTags Inherit="False"><li>Drugs</li></tradeTags> <!-- Inside Def and not base to allow modsettings to disable -->
         <comps>
             <li Class="CompProperties_Drug">
                 <addictiveness>0</addictiveness>

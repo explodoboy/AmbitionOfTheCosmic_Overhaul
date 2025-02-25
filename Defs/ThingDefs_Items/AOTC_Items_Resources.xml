@@ -36,9 +36,6 @@
             <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
             <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
         </stuffProps>
-        <tradeTags>
-            <li>ExoticMisc</li>
-        </tradeTags>
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
         <allowedArchonexusCount>80</allowedArchonexusCount>
     </ThingDef>
@@ -56,9 +53,6 @@
             <Flammability>0</Flammability>
             <DeteriorationRate>0</DeteriorationRate>
         </statBases>
-        <tradeTags>
-            <li>ExoticMisc</li>
-        </tradeTags>
         <allowedArchonexusCount>10</allowedArchonexusCount>
     </ThingDef>
 
@@ -113,6 +107,9 @@
                 <MeleeWeapon_CooldownMultiplier>1</MeleeWeapon_CooldownMultiplier>
             </statFactors>
         </stuffProps>
+        <tradeTags> <!-- tradeTags are inside this Def instead of its abstract base because XML patches run BEFORE inheritance, meaning that if I want to patch something, it has to be inside the XML code. I really don't like it, but it is what it is. -->
+            <li>ExoticMisc</li>
+        </tradeTags>
         <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     </ThingDef>
 
@@ -146,6 +143,9 @@
                 <MeleeWeapon_CooldownMultiplier>1</MeleeWeapon_CooldownMultiplier>
             </statFactors>
         </stuffProps>
+        <tradeTags> <!-- Refer to comment in AOTC_MaterialTough_GenI. -->
+            <li>ExoticMisc</li>
+        </tradeTags>
         <thingSetMakerTags><li>RewardStandardHighFreq</li></thingSetMakerTags>
     </ThingDef>
 
@@ -179,6 +179,9 @@
                 <MeleeWeapon_CooldownMultiplier>1</MeleeWeapon_CooldownMultiplier>
             </statFactors>
         </stuffProps>
+        <tradeTags> <!-- Refer to comment in AOTC_MaterialTough_GenI. -->
+            <li>ExoticMisc</li>
+        </tradeTags>
         <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     </ThingDef>
 
@@ -194,6 +197,9 @@
             <MarketValue>400</MarketValue>
             <MaxHitPoints>250</MaxHitPoints>
         </statBases>
+        <tradeTags> <!-- Refer to comment in AOTC_MaterialTough_GenI. -->
+            <li>ExoticMisc</li>
+        </tradeTags>
     </ThingDef>
 
     <!-- 5 Plasteel, 1 Advanced Component >> 1 proto-cosmic capacitor -->
@@ -209,6 +215,9 @@
             <MaxHitPoints>25</MaxHitPoints>
             <MarketValue>250</MarketValue>
         </statBases>
+        <tradeTags> <!-- Refer to comment in AOTC_MaterialTough_GenI. -->
+            <li>ExoticMisc</li>
+        </tradeTags>
     </ThingDef>
     
     <!-- 1 Starsteel Capacitor + [Time] >>> 1 proto-cosmic charge -->
@@ -224,6 +233,9 @@
             <MaxHitPoints>25</MaxHitPoints>
             <MarketValue>350</MarketValue>
         </statBases>
+        <tradeTags> <!-- Refer to comment in AOTC_MaterialTough_GenI. -->
+            <li>ExoticMisc</li>
+        </tradeTags>
     </ThingDef>
 
     

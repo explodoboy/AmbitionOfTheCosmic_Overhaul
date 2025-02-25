@@ -1,0 +1,17 @@
+<Defs>
+
+    <ThingDef Abstract="True" Name="AOTC_GrenadeBase" ParentName="BaseMakeableGrenade">
+        <uiIconScale>1.3</uiIconScale>
+        <soundInteract>Interact_Grenade</soundInteract>
+        <techLevel>Archotech</techLevel>
+        <statBases>
+            <Mass>1</Mass>
+            <RangedWeapon_Cooldown>2.66</RangedWeapon_Cooldown>
+            <WorkToMake>12000</WorkToMake>
+        </statBases>
+        <thingCategories>
+            <li>Grenades</li>
+        </thingCategories>
+    </ThingDef>
+
+</Defs>
